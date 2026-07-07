@@ -1,0 +1,1312 @@
+/* ==========================================================================
+   PREMIUM ABOUT HERO OVERLAY SYSTEM
+   ========================================================================== */
+.about-hero-canvas {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 12rem 0 8rem 0; /* Extended padding clearance under fixed headers */
+  z-index: 10;
+  background-color: #050d0e;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.15);
+}
+
+/* --- High-Performance Background Image Layer --- */
+.about-hero-parallax-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax scrolling effect on desktop viewports */
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+/* --- Deep Brand Image Shroud Blending Matrices --- */
+.about-hero-shroud {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Blends corporate deep teal down into our signature dark canvas base */
+  background: radial-gradient(circle at 50% 40%, rgba(11, 80, 82, 0.4) 0%, rgba(5, 13, 14, 0.95) 85%),
+              linear-gradient(180deg, rgba(5, 13, 14, 0.5) 0%, rgba(5, 13, 14, 1) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CONTENT LAYOUT CONFIGURATION
+   ========================================================================== */
+.about-hero-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.about-hero-content-box {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -50px; /* Precise layout lift to anchor visual hierarchy */
+}
+
+/* --- Styled Header Typography Components --- */
+.about-hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em; /* Elite luxury tracking expansion */
+  margin-bottom: 1.5rem;
+}
+
+.about-hero-tagline::before,
+.about-hero-tagline::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background-color: var(--secondary-gold, #cfa365);
+}
+
+.about-hero-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  
+  /* Modern metallic gradient text mask */
+  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 25px rgba(5, 13, 14, 0.4);
+}
+
+.about-hero-narrative {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--neutral-grey, #8d9898);
+  max-width: 740px;
+  margin: 0 auto 3.5rem auto;
+}
+
+/* --- Mini Editorial Performance Metrics Row --- */
+.about-hero-metrics-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  border-top: 1px dashed rgba(71, 146, 148, 0.2);
+  padding-top: 2rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.mini-metric-node .mini-num {
+  display: block;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--secondary-cyan, #00e5ff);
+  margin-bottom: 0.25rem;
+}
+
+.mini-metric-node .mini-lbl {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  color: var(--neutral-grey, #8d9898);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .about-hero-canvas {
+    padding: 9rem 0 5rem 0;
+    min-height: auto;
+  }
+
+  .about-hero-parallax-bg {
+    background-attachment: scroll; /* Disables parallax layout mapping on mobile viewports for clean processing speeds */
+  }
+
+  .about-hero-content-box {
+    max-width: 100%;
+    margin-top: 0; /* Clean layout reset clears fixed mobile navigation header spacing safely */
+    padding: 0 1.25rem;
+  }
+
+  .about-hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .about-hero-narrative {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Flatten mini stats horizontally to adapt smoothly on small viewports */
+  .about-hero-metrics-strip {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+  }
+
+  .mini-metric-node .mini-num {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM ASYMMETRIC STORY & PURPOSE SYSTEM
+   ========================================================================== */
+.about-purpose-section {
+  background-color: #050d0e; /* Fixed locked dark baseline background */
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.purpose-glow-orb {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(71, 146, 148, 0.12) 0%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.purpose-split-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 6rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: STICKY ANCHORED TYPOGRAPHY
+   ========================================================================== */
+.purpose-heading-column {
+  position: sticky;
+  top: 130px; /* Secure positioning coordinates below fixed website main header */
+}
+
+.purpose-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em; /* Luxury corporate tracking tracking */
+  margin-bottom: 1.25rem;
+}
+
+.purpose-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+.purpose-main-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  
+  /* High-end metallic text gradient mask */
+  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: EDITORIAL PROSE RUNS
+   ========================================================================== */
+.purpose-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.purpose-lead-text {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--neutral-white, #ffffff);
+  font-weight: 500;
+}
+
+.purpose-body-text {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--neutral-grey, #8d9898);
+}
+
+/* High-End Executive Blockquote Accent Frame */
+.purpose-executive-callout {
+  background: linear-gradient(90deg, rgba(11, 80, 82, 0.15) 0%, transparent 100%);
+  border-left: 3px solid var(--secondary-gold, #cfa365); /* Elegant gold line replaces heavy boxes */
+  padding: 2rem 2.5rem;
+  margin: 1rem 0;
+  border-radius: 0 16px 16px 0;
+}
+
+.purpose-executive-callout {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.callout-author {
+  display: block;
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.85rem;
+  color: var(--secondary-cyan, #00e5ff);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-style: normal;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .about-purpose-section {
+    padding: 5rem 0;
+  }
+
+  .purpose-split-grid {
+    grid-template-columns: 1fr; /* Flatten asymmetric tracks seamlessly on mobile */
+    gap: 3rem;
+    padding: 0 1.25rem;
+  }
+
+  .purpose-heading-column {
+    position: relative;
+    top: 0; /* Release sticky layout pins for clean natural scrolling rules on mobile viewports */
+    text-align: center;
+  }
+
+  .purpose-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .purpose-main-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+
+  .purpose-lead-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .purpose-body-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .purpose-executive-callout {
+    padding: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM DEEP AMBIENT CARBON METRICS SYSTEM
+   ========================================================================== */
+.premium-carbon-metrics-section {
+  background-color: #050d0e; /* Fixed locked deep corporate canvas dark background */
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* --- Luxury Blended Dynamic Backlighting Fields --- */
+.matrix-ambient-glow-core {
+  position: absolute;
+  top: -10%; left: -5%; width: 500px; height: 500px;
+  border-radius: 50%;
+  /* Injects your core color token as a premium ambient background lighting layer */
+  background: radial-gradient(circle, rgba(71, 146, 148, 0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.matrix-ambient-glow-secondary {
+  position: absolute;
+  bottom: -20%; right: -5%; width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.metrics-split-matrix {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: METALLIC EDITORIAL TYPOGRAPHY
+   ========================================================================== */
+.carbon-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em; /* Elite tracking expansion */
+  margin-bottom: 1.25rem;
+}
+
+.carbon-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+.carbon-main-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  /* Premium metallic gradient mask */
+  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.carbon-body-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--neutral-grey, #8d9898);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: GLASSMORPHIC GRID LAYOUT CORES
+   ========================================================================== */
+.metrics-data-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+/* Luxury borderless look using fine translucent gradient backdrops */
+.carbon-node-box {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.15) 0%, rgba(5, 13, 14, 0.4) 100%);
+  /* Border elements capture your color token elegantly at a low opacity */
+  border: 1px solid rgba(71, 146, 148, 0.2);
+  padding: 3.5rem 2.5rem;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 30px 60px rgba(5, 13, 14, 0.3);
+}
+
+.carbon-icon-wrap {
+  font-size: 1.5rem;
+  color: var(--secondary-cyan, #00e5ff);
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+.carbon-big-stat {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.carbon-stat-label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--neutral-grey, #8d9898);
+}
+
+/* --- Premium Interaction Animations --- */
+.carbon-node-box:hover {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.25) 0%, rgba(5, 13, 14, 0.5) 100%);
+  border-color: var(--secondary-cyan, #00e5ff);
+  transform: translateY(-5px);
+  box-shadow: 0 40px 80px rgba(0, 229, 255, 0.1);
+}
+
+.carbon-node-box:hover .carbon-icon-wrap {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-carbon-metrics-section {
+    padding: 5rem 0;
+  }
+
+  .metrics-split-matrix {
+    grid-template-columns: 1fr; /* Collapses dual panes down to vertical single line maps */
+    gap: 4rem;
+    padding: 0 1.25rem;
+  }
+
+  .metrics-narrative-block {
+    text-align: center;
+  }
+
+  .carbon-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .carbon-main-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+
+  .carbon-body-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .metrics-data-grid {
+    grid-template-columns: 1fr; /* Streamlines matrix cells safely on narrow screens */
+    gap: 1.5rem;
+  }
+
+  .carbon-node-box {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-radius: 16px;
+  }
+  
+  .carbon-icon-wrap {
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM LEADERSHIP INTERACTIVE HOVER TRACK SYSTEM
+   ========================================================================== */
+.premium-leadership-section {
+  background-color: #050d0e; /* Corporate dark baseline canvas background */
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.leadership-glow-orb {
+  position: absolute;
+  top: 40%; right: -10%; width: 550px; height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(11, 80, 82, 0.15) 0%, transparent 70%);
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leadership-header-box {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 6rem auto;
+  padding: 0 1rem;
+}
+
+/* --- Styled Header Typography Components --- */
+.leadership-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.25rem;
+}
+
+.leadership-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+.leadership-main-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 30%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.leadership-lead-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--neutral-grey, #8d9898);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   THE SLIDING META IMAGE WRAPPER CANVAS
+   ========================================================================== */
+.leadership-stream-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+  position: relative;
+  z-index: 5;
+  padding: 0 1rem;
+  
+}
+
+.leader-stream-node {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+/* --- The Visual Base Frame Container --- */
+.leader-visual-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--primary-100, #062223);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  box-shadow: 0 25px 50px rgba(5, 13, 14, 0.3);
+  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0 50px 50px rgba(5, 13, 14, 0.5);
+}
+
+.leader-asset-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(100%) brightness(85%); /* High-end fashion grayscale look */
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s ease;
+}
+
+.leader-frame-shroud {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, transparent 50%, rgba(5, 13, 14, 0.85) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   THE GLASSMORPHIC OVERLAY SLIDER HUB
+   ========================================================================== */
+.leader-sliding-meta-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.25) 0%, rgba(5, 13, 14, 0.65) 100%);
+  border-top: 1px solid rgba(71, 146, 148, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 2.25rem 2rem;
+  z-index: 5;
+  box-sizing: border-box;
+  text-align: left;
+  
+  /* Pushes content entirely past the boundary box until hovered */
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inner Data Typographies */
+.leader-name {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.leader-role {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  color: var(--secondary-gold, #cfa365); /* Elegant gold theme accent tracking */
+  margin-bottom: 1rem;
+}
+
+.leader-specialty-path {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  color: var(--neutral-white, #ffffff);
+  opacity: 0.8;
+}
+
+.leader-specialty-path i {
+  color: var(--secondary-cyan, #00e5ff);
+}
+
+/* ==========================================================================
+   PREMIUM HARDWARE ACCELERATED HOVER TRACKERS
+   ========================================================================== */
+.leader-stream-node:hover .leader-visual-frame {
+  border-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 30px 60px rgba(0, 229, 255, 0.15);
+  cursor: pointer;
+}
+
+.leader-stream-node:hover .leader-asset-img {
+  transform: scale(1.06);
+  filter: grayscale(0%) contrast(105%) brightness(95%); /* Smooth return of full color scale */
+}
+
+.leader-stream-node:hover .leader-sliding-meta-box {
+  transform: translateY(0); /* Slides up fluidly */
+  opacity: 1;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-leadership-section {
+    padding: 5rem 0;
+  }
+
+  .leadership-header-box {
+    margin-bottom: 3.5rem;
+  }
+
+  .leadership-main-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+
+  .leadership-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .leadership-lead-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Collapse columns cleanly to accommodate easy mobile scrolling profiles */
+  .leadership-stream-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 1.5rem;
+  }
+
+  /* PERSISTENT CONTENT VISIBILITY FOR TOUCH SCREENS
+     Because mobile devices lack actual cursors, we bring the overlay box up 
+     permanently on mobile viewports so content remains perfectly readable. */
+  .leader-sliding-meta-box {
+    transform: translateY(0);
+    opacity: 1;
+    padding: 1.75rem 1.5rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(5, 13, 14, 0.95) 80%);
+    border-top: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .leader-asset-img {
+    filter: grayscale(20%) contrast(100%) brightness(90%); /* Soft color baseline split for mobile rendering */
+  }
+  
+  .leader-name {
+    font-size: 1.35rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM GLOBAL REGIONAL COORDINATES HUB
+   ========================================================================== */
+.premium-location-section {
+  background-color: #050d0e; /* Fixed dark corporate background baseline */
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.location-glow-orb {
+  position: absolute;
+  bottom: -10%;
+  left: 40%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(11, 80, 82, 0.14) 0%, transparent 70%);
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: REGIONAL COORDINATES PRESENTATION HUB
+   ========================================================================== */
+.location-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.25rem;
+}
+
+.location-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+.location-main-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 30%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.location-lead-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 3rem;
+}
+
+/* --- Sequential Coordinates List Stream --- */
+.coordinates-list-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.coordinate-item-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(11, 80, 82, 0.05);
+  border: 1px solid rgba(71, 146, 148, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coord-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--secondary-gold, #cfa365);
+  margin-top: 6px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.coordinate-item-box h4 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.coordinate-item-box p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 0;
+}
+
+/* Coordinate Row Hover Actions */
+.coordinate-item-box:hover {
+  background: rgba(11, 80, 82, 0.15);
+  border-color: rgba(0, 229, 255, 0.25);
+  transform: translateX(6px);
+  cursor: pointer;
+}
+
+.coordinate-item-box:hover .coord-dot {
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: LUXURY GLASS RADAR OVERLAY
+   ========================================================================== */
+.network-glass-card {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.12) 0%, rgba(5, 13, 14, 0.4) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 4.5rem 3.5rem;
+  border-radius: 24px;
+  box-shadow: 0 40px 80px rgba(5, 13, 14, 0.5);
+  text-align: center;
+}
+
+/* Animated Pulse Radar Core */
+.network-signal-radar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 3rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radar-icon {
+  font-size: 2.25rem;
+  color: var(--secondary-cyan, #00e5ff);
+  z-index: 5;
+  filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6));
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  animation: radarEcho 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.ring-2 {
+  animation-delay: 1.5s;
+}
+
+.network-meta-box h3 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.network-meta-box p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 2.5rem;
+}
+
+.status-indicator-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #050d0e;
+  border: 1px solid rgba(71, 146, 148, 0.2);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00ff66;
+  box-shadow: 0 0 8px #00ff66;
+  animation: activeBlink 1.5s ease-in-out infinite alternate;
+}
+
+/* ==========================================================================
+   HARDWARE-ACCELERATED ANIMATION MATRIX CORES
+   ========================================================================== */
+@keyframes radarEcho {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes activeBlink {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-location-section {
+    padding: 5rem 0;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr; /* Drop asymmetric dual sidebars seamlessly */
+    gap: 4rem;
+  }
+
+  .location-directory-pane {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .location-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .location-main-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+
+  .location-lead-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .coordinate-item-box {
+    text-align: left; /* Keep textual directory rows cleanly aligned for readability */
+    padding: 1.25rem;
+  }
+  
+  .coordinate-item-box:hover {
+    transform: translateX(0); /* Resets structural translation offsets safely for thumb scrolling */
+  }
+
+  /* Flatten the right-aligned glass layout framework card */
+  .network-glass-card {
+    padding: 3.5rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 16px;
+  }
+
+  .network-meta-box h3 {
+    font-size: 1.5rem;
+  }
+
+  .network-meta-box p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ABOUT FINAL CTA OVERLAY SYSTEM
+   ========================================================================== */
+.about-final-cta-section {
+  position: relative;
+  width: 100%;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8rem 0;
+  z-index: 10;
+  background-color: #050d0e;
+}
+
+/* --- High-Performance Background Image Layer --- */
+.about-cta-parallax-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax shift interaction on desktop viewports */
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+/* --- Deep Dark Dual-Gradient Overlay Shroud --- */
+.about-cta-shroud {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Blends photographic assets smoothly down into core background values */
+  background: radial-gradient(circle at 50% 50%, rgba(11, 80, 82, 0.45) 0%, rgba(5, 13, 14, 0.95) 90%),
+              linear-gradient(180deg, rgba(5, 13, 14, 0.6) 0%, rgba(5, 13, 14, 1) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   THE CONTENT GLASS MATRIX CARD CONTAINER
+   ========================================================================== */
+.about-cta-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.about-cta-glass-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.15) 0%, rgba(5, 13, 14, 0.5) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.25); /* Translucent brand border rim */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 5.5rem 4.5rem;
+  border-radius: 32px;
+  box-shadow: 0 50px 100px rgba(5, 13, 14, 0.6);
+}
+
+/* --- High-End Typography Elements --- */
+.about-cta-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.5rem;
+}
+
+.about-cta-tagline::before,
+.about-cta-tagline::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background-color: var(--secondary-gold, #cfa365);
+}
+
+.about-cta-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.about-cta-body-text {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--neutral-grey, #8d9898);
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+/* --- Conversion Action Clusters --- */
+.about-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cta-vanguard-btn {
+  padding: 15px 32px !important;
+}
+
+.cta-secondary-btn {
+  color: var(--secondary-cyan, #00e5ff) !important;
+  border-color: rgba(71, 146, 148, 0.3) !important;
+}
+
+.cta-secondary-btn:hover {
+  border-color: var(--secondary-cyan, #00e5ff) !important;
+  background-color: rgba(11, 80, 82, 0.2) !important;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .about-final-cta-section {
+    padding: 5rem 0;
+    min-height: auto;
+  }
+
+  .about-cta-parallax-bg {
+    background-attachment: scroll; /* Disables parallax calculation lines on touch screens for rendering stability */
+  }
+
+  .about-cta-glass-card {
+    padding: 4rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 20px;
+  }
+
+  .about-cta-title {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .about-cta-body-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .about-cta-actions {
+    flex-direction: column; /* Force stacks buttons vertically for phone screens */
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .about-cta-actions .btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

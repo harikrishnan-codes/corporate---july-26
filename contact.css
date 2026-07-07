@@ -1,0 +1,867 @@
+/* ==========================================================================
+   PREMIUM CONTACT HERO OVERLAY SYSTEM (IMAGE & CONTENT MATRIX)
+   ========================================================================== */
+.contact-hero-canvas {
+  position: relative;
+  width: 100%;
+  padding: 14rem 0 8rem 0; /* Clear space beneath fixed desktop navigation bars */
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Elegant desktop parallax shift effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.15);
+}
+
+/* --- Deep Corporate Image Shroud Blending Matrices --- */
+.hero-image-shroud {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Blends photographic assets directly down into your dark corporate palette */
+  background: radial-gradient(circle at 50% 50%, rgba(11, 80, 82, 0.35) 0%, rgba(5, 13, 14, 0.95) 90%),
+              linear-gradient(180deg, rgba(5, 13, 14, 0.4) 0%, rgba(5, 13, 14, 1) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Soft corner atmospheric lighting glow accent */
+.hero-atmospheric-glow {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   CONTENT PRESENTATION ENGINE CONFIGURATION
+   ========================================================================== */
+.hero-inner-flex {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-contact-content-box {
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -80px; /* Precise layout elevation adjustment string */
+}
+
+/* Luxury Accent Tag */
+.contact-vanguard-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em; /* Executive tracking expansion */
+  margin-bottom: 1.5rem;
+}
+
+.contact-vanguard-tag::before,
+.contact-vanguard-tag::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background-color: var(--secondary-gold, #cfa365);
+}
+
+.contact-hero-canvas .subpage-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em; /* Clean, editorial kerning */
+  
+  /* Modern metallic gradient font face mask */
+  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 25px rgba(5, 13, 14, 0.4);
+}
+
+.contact-hero-narrative {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--neutral-grey, #8d9898);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .contact-hero-canvas {
+    padding: 10rem 0 5rem 0; /* Streamlined mobile block heights */
+    background-attachment: scroll; /* Disables sticky parallax loop calculation lines on mobile for 60fps scrolling */
+  }
+
+  .hero-contact-content-box {
+    max-width: 100%;
+    margin-top: 0; /* PERFECT CORRECTION: Resets negative margin lift parameters to avoid header overlaps */
+    padding: 0 1.25rem;
+  }
+
+  .contact-vanguard-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+
+  .contact-hero-canvas .subpage-title {
+    font-size: 2.5rem; /* Balanced typographic display size scale */
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .contact-hero-narrative {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM ENTERPRISE COMMUNICATIONS HUB
+   ========================================================================== */
+.premium-contact-matrix-section {
+  background-color: #050d0e;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.contact-matrix-glow {
+  position: absolute;
+  top: 30%; left: -10%; width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(11, 80, 82, 0.14) 0%, transparent 70%);
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-matrix-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 5rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 5;
+}
+
+/* --- Directory Panels Left Side Layout --- */
+.directory-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.25rem;
+}
+
+.directory-subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+.directory-main-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 30%, var(--neutral-grey, #8d9898) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.directory-lead-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 3.5rem;
+}
+
+.directory-list-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.directory-item-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(11, 80, 82, 0.05);
+  border: 1px solid rgba(71, 146, 148, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.directory-icon-wrap {
+  font-size: 1.75rem;
+  color: var(--secondary-cyan, #00e5ff);
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.4));
+}
+
+.directory-info h4 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.directory-info p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 0;
+}
+
+.directory-item-box:hover {
+  background: rgba(11, 80, 82, 0.15);
+  border-color: rgba(0, 229, 255, 0.25);
+  transform: translateX(4px);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN COMPONENT: SECURE INPUT BOXES & OVERFLOW CONTROLS
+   ========================================================================== */
+.contact-glass-card {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.12) 0%, rgba(5, 13, 14, 0.4) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 4rem 3.5rem;
+  border-radius: 24px;
+  box-shadow: 0 40px 80px rgba(5, 13, 14, 0.5);
+}
+
+.contact-card-header h3 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.contact-card-header p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 3rem;
+}
+
+.contact-input-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.contact-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.target-space-top {
+  margin-top: 1.5rem;
+}
+
+.contact-field-label {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+/* Base Form Input Safety Configuration */
+.premium-contact-input {
+  width: 100%;
+  max-width: 100%; /* FIX: Force explicit content boundary locks */
+  background: rgba(5, 13, 14, 0.5);
+  border: 1px solid rgba(71, 146, 148, 0.25);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: #ffffff;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  text-overflow: ellipsis; /* FIX: Truncates text with a smart '...' if string overflows container bounds */
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.premium-contact-input:focus {
+  border-color: var(--secondary-cyan, #00e5ff);
+  background: rgba(11, 80, 82, 0.15);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+/* Shimmer feedback framework for invalid inputs during active evaluation rules */
+.premium-contact-input:focus:invalid {
+  border-color: #ff4a4a;
+  box-shadow: 0 0 15px rgba(255, 74, 74, 0.2);
+}
+
+/* --- Dropdown Form Shielding Architecture --- */
+.custom-select-mask {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 45px !important; /* FIX: Prevents long text options from overlapping our custom down arrow */
+}
+
+.custom-select-mask option {
+  background-color: #050d0e;
+  color: #ffffff;
+}
+
+.premium-textarea {
+  resize: vertical;
+  white-space: normal; /* Permits details area to follow default row breaking structures */
+  overflow: auto;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 16px 24px !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-contact-matrix-section {
+    padding: 5rem 0;
+  }
+
+  .contact-matrix-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 0 1.25rem;
+  }
+
+  .contact-directory-pane {
+    text-align: center;
+  }
+
+  .directory-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .directory-main-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+  }
+
+  .directory-lead-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .directory-item-box {
+    text-align: left;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .directory-item-box:hover {
+    transform: none;
+  }
+
+  .contact-glass-card {
+    padding: 3.5rem 1.5rem;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .contact-card-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .contact-card-header p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 2rem;
+  }
+
+  .contact-input-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Core Font and Padding Shifting for Ultra Compact Mobile Frames */
+  .premium-contact-input {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+
+  .custom-select-mask {
+    padding-right: 40px !important;
+    background-position: right 14px center;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM INTERACTIVE MAP & REGISTRY MATRIX SYSTEM
+   ========================================================================== */
+.premium-map-registry-section {
+  background-color: #050d0e; /* Fixed locked corporate dark background canvas */
+  padding: 4rem 0 10rem 0; /* Expanded bottom padding creates breathing space before footers */
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.map-matrix-ambient-glow {
+  position: absolute;
+  bottom: -10%; left: 30%; width: 550px; height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(71, 146, 148, 0.12) 0%, transparent 70%);
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.map-registry-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Asymmetric balance prioritizing the interactive map frame */
+  gap: 4.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   LEFT COLUMN COMPONENT: HIGH-CONTRAST DARK MAP FRAME VIEWPORT
+   ========================================================================== */
+.map-viewport-wrapper {
+  width: 100%;
+}
+
+.dark-map-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border: 1px solid rgba(71, 146, 148, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(5, 13, 14, 0.5);
+  background-color: #050d0e;
+}
+
+.embedded-map-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* Classy dark monochrome styling mask injected over native mapping frames */
+  filter: grayscale(100%) invert(92%) contrast(120%) brightness(85%) hue-rotate(170deg);
+  -webkit-filter: grayscale(100%) invert(92%) contrast(120%) brightness(85%) hue-rotate(170deg);
+  transition: filter 0.5s ease;
+}
+
+/* Luxury interior vignette shroud binds map textures directly to baseline backgrounds */
+.map-vignette-shroud {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(5, 13, 14, 0.7) 100%),
+              linear-gradient(180deg, rgba(5, 13, 14, 0.2) 0%, rgba(5, 13, 14, 0.5) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Floating Automated Pulse Signal Core */
+.map-radar-pulse-core {
+  position: absolute;
+  top: 52%; left: 48%; /* Matches targeted regional map center coordinates */
+  width: 14px; height: 14px;
+  z-index: 3;
+}
+
+.radar-ping {
+  position: absolute;
+  width: 100%; height: 100%;
+  background-color: var(--secondary-cyan, #00e5ff);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+}
+
+.radar-ping-echo {
+  position: absolute;
+  width: 100%; height: 100%;
+  background-color: var(--secondary-cyan, #00e5ff);
+  border-radius: 50%;
+  animation: radarEchoPulse 2.5s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+}
+
+@keyframes radarEchoPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(4.5); opacity: 0; }
+}
+
+/* ==========================================================================
+   RIGHT COLUMN COMPONENT: GLASSMORPHIC COORDINATES REGISTER
+   ========================================================================== */
+.registry-mini-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1rem;
+}
+
+.registry-mini-tag::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--secondary-cyan, #00e5ff);
+}
+
+.registry-heading {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.registry-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 2.5rem;
+}
+
+.registry-nodes-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Frosted glass layout style row boxes */
+.office-node-card {
+  display: flex;
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.08) 0%, rgba(5, 13, 14, 0.3) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.node-accent-indicator {
+  width: 4px;
+  background-color: transparent;
+  transition: background-color 0.4s ease;
+}
+
+.node-card-content {
+  padding: 1.75rem 2rem;
+  flex-grow: 1;
+}
+
+.node-card-content h4 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.node-address, .node-availability {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.node-availability {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+  color: var(--secondary-gold, #cfa365);
+}
+
+.node-address i {
+  color: var(--secondary-cyan, #00e5ff);
+}
+
+/* Active Highlight and Mouse Hover States */
+.office-node-card.active,
+.office-node-card:hover {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.16) 0%, rgba(5, 13, 14, 0.45) 100%);
+  border-color: rgba(0, 229, 255, 0.25);
+  box-shadow: 0 15px 30px rgba(5, 13, 14, 0.4);
+}
+
+.office-node-card.active .node-accent-indicator,
+.office-node-card:hover .node-accent-indicator {
+  background-color: var(--secondary-cyan, #00e5ff);
+  box-shadow: 0 0 12px var(--secondary-cyan, #00e5ff);
+}
+
+.premium-map-registry-section:hover .embedded-map-frame {
+  filter: grayscale(80%) invert(92%) contrast(120%) brightness(90%) hue-rotate(170deg); /* Soft brightness shift on maps */
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-map-registry-section {
+    padding: 3rem 0 6rem 0;
+  }
+
+  .map-registry-layout {
+    grid-template-columns: 1fr; /* Instantly collapses split-grids to unified singular layout columns */
+    gap: 3.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .dark-map-canvas {
+    aspect-ratio: 16 / 10; /* Adapts beautifully into horizontal frames on device frames */
+    border-radius: 16px;
+  }
+
+  .office-registry-pane {
+    text-align: center;
+  }
+
+  .registry-mini-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .registry-heading {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .registry-desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 2rem;
+  }
+
+  .office-node-card {
+    text-align: left; /* Maintains text baseline alignments on cards layout */
+    border-radius: 12px;
+  }
+  
+  .node-card-content {
+    padding: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PREMIUM CORPORATE DETAILS REGISTRY SYSTEM
+   ========================================================================== */
+.premium-corporate-details-section {
+  background-color: #050d0e; /* Fixed locked brand dark background canvas */
+  padding: 4rem 0 10rem 0; /* Expanded padding creates strict separation limits before footers */
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(71, 146, 148, 0.12);
+}
+
+.details-split-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Balanced 3-column corporate array layout */
+  gap: 3.5rem;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   THE STRUCTURAL EDITORIAL DETAIL CARDS
+   ========================================================================== */
+.corporate-details-node {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.05) 0%, rgba(5, 13, 14, 0.25) 100%);
+  border-left: 2px solid rgba(71, 146, 148, 0.2); /* Luxury fine rule line replacing heavy border cards */
+  padding: 1rem 0 1.5rem 2rem;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.details-mini-tag {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  color: var(--secondary-gold, #cfa365); /* Elegant gold theme tracking accent */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.details-block-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.details-block-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 2rem;
+}
+
+/* --- Metadata Metric Row Placements --- */
+.details-metadata-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto; /* Pushes meta rows flat to the base boundary grid */
+}
+
+.meta-line-item {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.meta-line-item i {
+  color: var(--secondary-cyan, #00e5ff); /* Vivid cyan indicators pop off the background dark canvas */
+  font-size: 0.95rem;
+  width: 16px;
+  text-align: center;
+}
+
+/* --- Premium Hover Accelerations --- */
+.corporate-details-node:hover {
+  border-left-color: var(--secondary-cyan, #00e5ff);
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.12) 0%, rgba(5, 13, 14, 0.35) 100%);
+  padding-left: 2.5rem; /* Soft kinetic sliding typography animation interaction */
+  cursor: default;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-corporate-details-section {
+    padding: 4rem 0 6rem 0;
+  }
+
+  .details-split-matrix {
+    grid-template-columns: 1fr; /* Instantly collapses rows to a singular mobile list stream */
+    gap: 3rem;
+    padding: 0 1.25rem;
+  }
+
+  .corporate-details-node {
+    padding: 0 0 1.5rem 1.5rem; /* Adjusts side space for tighter handheld device glass frames */
+    border-left: 2px solid rgba(71, 146, 148, 0.3);
+  }
+  
+  .corporate-details-node:hover {
+    padding-left: 1.5rem; /* Disables kinetic padding slide transitions on touch viewports for interface stability */
+    background: none;
+    border-left-color: var(--secondary-cyan, #00e5ff);
+  }
+}
+
+
+
+
+
+
+
+

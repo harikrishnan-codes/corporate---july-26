@@ -1,0 +1,197 @@
+/* ==========================================================================
+   PREMIUM 404 ERROR CANVAS SYSTEM
+   ========================================================================== */
+.error-page-body {
+  background-color: #050d0e; /* Fallback baseline match */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.error-content-box {
+  background: rgba(11, 80, 82, 0.15); /* Translucent primary teal tint */
+  border: 1px solid rgba(71, 146, 148, 0.2);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 24px;
+  padding: 5rem 4rem;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(5, 13, 14, 0.4);
+  animation: errorBoxReveal 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Atmospheric Ambient Orbs --- */
+.error-glow-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(150px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+.left-orb {
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle, var(--primary-color, #0b5052) 0%, transparent 70%);
+}
+.right-orb {
+  bottom: -10%;
+  right: -10%;
+  background: radial-gradient(circle, var(--secondary-cyan, #00e5ff) 0%, transparent 70%);
+}
+
+/* ==========================================================================
+   STYLISH KINETIC ARTWORK & ANIMATIONS
+   ========================================================================== */
+.error-visual {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Glowing Typography Number */
+.glitch-number {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 8.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--neutral-white, #ffffff);
+  text-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+  position: relative;
+  animation: floatTelemetry 5s ease-in-out infinite alternate;
+}
+
+/* Cosmic Radar Rings Background */
+.radar-box {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.radar-line {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid rgba(71, 146, 148, 0.25);
+  border-radius: 50%;
+  animation: radarPulse 4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+.radar-line:nth-child(2) {
+  animation-delay: 2s;
+}
+
+/* Typography Messaging Layouts */
+.error-heading {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 2.5rem;
+  color: var(--neutral-white, #ffffff);
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 3rem;
+}
+
+.error-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.error-sec-btn {
+  color: var(--secondary-cyan, #00e5ff) !important;
+}
+
+/* ==========================================================================
+   ANIMATION INTERACTIVE LOOPS
+   ========================================================================== */
+@keyframes errorBoxReveal {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatTelemetry {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-10px) scale(1.02); }
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* ==========================================================================
+   EXPLICIT 768PX RESPONSIVE BREAKPOINT QUERY
+   ========================================================================== */
+@media (max-width: 768px) {
+  .error-content-box {
+    padding: 4rem 2rem;
+    margin: 1rem;
+    border-radius: 16px;
+  }
+
+  .glitch-number {
+    font-size: 6.5rem;
+  }
+
+  .error-visual {
+    height: 140px;
+    margin-bottom: 1.5rem;
+  }
+
+  .radar-box {
+    width: 200px;
+    height: 200px;
+  }
+
+  .error-heading {
+    font-size: 2rem;
+  }
+
+  .error-message {
+    font-size: 0.95rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .error-action-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  /* Make components stretch fully to touch targets on mobile viewports */
+  .error-action-row .btn {
+    width: 100%;
+    padding: 14px 24px !important;
+  }
+}

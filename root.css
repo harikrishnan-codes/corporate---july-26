@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   DESIGN SYSTEM TOKENS (:ROOT)
+   ========================================================================== */
+:root {
+  /* --- Global Layout / Mechanics --- */
+  /* --canvas-dark: #050d0e;           */
+  --lh-body: 1.6;
+  --lh-heading: 1.2;
+  --transition-quantum: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+/* --- FONTS CONFIGURATION --- */
+  --font-body: 'Inter', sans-serif;
+  
+  /* 💡 CHANGE THIS TO TRY DIFFERENT STYLES FOR YOUR SECTION HEADERS:
+     Options: 'Plus Jakarta Sans', 'Poppins', 'Playfair Display', etc. */
+  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+
+  /* --- Primary & Secondary Brand Colors --- */
+  --primary-color: #0b5052;       /* Deep teal core */
+  --primary-10: #e7f4f4;          /* Soft background tint */
+  --primary-25: #479294;          /* Medium-light teal */
+  --primary-75: #113c3d;          /* Medium-dark teal */
+  --primary-100: #062223;         /* Very dark deep teal */
+
+  --secondary-gold: #cfa365;      /* Accent gold/tan */
+  --secondary-cyan: #00e5ff;      /* Bright neon cyan accent */
+
+  /* --- Neutral Colors --- */
+  --neutral-white: #ffffff;       
+  --neutral-light-grey: #dae1e1;  
+  --neutral-grey: #8d9898;        
+  --neutral-dark-grey: #3c4a4b;   
+  --neutral-black: #050d0e;       
+
+  /* --- Semantic Colors --- */
+  --semantic-success-10: #daf6e4;
+  --semantic-success: #1bca6d;
+  --semantic-success-100: #04652e;
+
+  --semantic-error-10: #f7d7d9;
+  --semantic-error: #d72c2c;
+  --semantic-error-100: #620509;
+
+  --semantic-info-10: #daf0f7;
+  --semantic-info: #2ba4d3;
+  --semantic-info-100: #034f73;
+
+  --semantic-warning-10: #f4ebd9;
+  --semantic-warning: #d39226;
+  --semantic-warning-100: #6c4103;
+
+  /* --- Button Component Aliases --- */
+  --btn-primary-bg: var(--secondary-gold);
+  --btn-primary-text: var(--neutral-black);
+  --btn-primary-border-hover: var(--secondary-gold);
+  --btn-primary-text-hover: var(--secondary-gold);
+
+  --btn-secondary-bg: #258184;
+  --btn-secondary-text: var(--neutral-white);
+  --btn-secondary-bg-hover: #174c4e;
+
+  --btn-outline-text: #2ba4d3;
+  --btn-outline-border: #258184;
+  --btn-outline-text-hover: var(--neutral-grey);
+  --btn-outline-border-hover: var(--neutral-dark-grey);
+  
+  /* --- Navigation States --- */
+  --nav-link-active: var(--secondary-cyan);
+  --nav-link-hover: var(--neutral-grey);
+  --nav-link-passive: var(--neutral-white);
+
+  /* --- Typography Scale (Frame 4) --- */
+  --fs-h1: 3rem;       /* H1 scale */
+  --fs-h2: 2.25rem;    /* H2 scale */
+  --fs-h3: 1.75rem;    /* H3 scale */
+  --fs-h4: 1.375rem;   /* H4 scale */
+  --fs-h5: 1.125rem;   /* H5 scale */
+  --fs-body: 1rem;     /* Body text */
+  --fs-caption: 0.875rem; 
+  --fs-footnote: 0.75rem;
+}
+
+/* ==========================================================================
+   GLOBAL LAYOUT MECHANICS
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  background-color: var(--primary-color); 
+  color: var(--neutral-white);
+  font-family: 'Inter', sans-serif;
+  line-height: var(--lh-body);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+#app, #root, .wrapper, main {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY BINDING SCALES
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neutral-white);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+
+p { 
+  font-size: var(--fs-body); 
+  margin-bottom: 1rem; 
+  color: var(--neutral-grey); 
+}
+
+.caption { font-size: var(--fs-caption); color: var(--neutral-grey); }
+.footnote { font-size: var(--fs-footnote); color: var(--neutral-dark-grey); }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-quantum);
+}
+
+ul { list-style: none; }
+
+/* ==========================================================================
+   NAVIGATION STATES
+   ========================================================================== */
+.nav-link {
+  font-size: var(--fs-body);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.nav-link.active { color: var(--nav-link-active); }
+.nav-link.hover, .nav-link:hover { color: var(--nav-link-hover); }
+.nav-link.passive { color: var(--nav-link-passive); }
+
+/* ==========================================================================
+   BUTTONS COMPONENT UI
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: 'Inter', sans-serif; 
+  font-weight: 700;        
+  font-size: var(--fs-body);
+  border-radius: 8px;      
+  cursor: pointer;
+  transition: var(--transition-quantum);
+  text-decoration: none;
+}
+
+/* 1. Primary Gold Button */
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border-color: var(--btn-primary-border-hover);
+  color: var(--btn-primary-text-hover);
+}
+
+/* 2. Secondary Teal Button */
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 2px solid transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-bg-hover);
+  border-color: var(--btn-secondary-bg-hover);
+}
+
+/* 3. Outline "See More" Button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--btn-outline-text);
+  border: 2px solid var(--btn-outline-border);
+}
+
+.btn-outline:hover {
+  color: var(--btn-outline-text-hover);
+  border-color: var(--btn-outline-border-hover);
+}
+
+
+
+
+
+
+
+
+
+
+/* <nav>
+  <a href="#" class="nav-link active">Active State</a>
+  <a href="#" class="nav-link hover">Hover State</a>
+  <a href="#" class="nav-link passive">Passive State</a>
+</nav>
+
+<div style="margin-top: 20px; display: flex; gap: 15px;">
+  <button class="btn btn-primary">Button</button>
+  <button class="btn btn-secondary">Secondary Button</button>
+  <button class="btn btn-outline">See More</button>
+</div> */
