@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate & Business - Authentication</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+    <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+<section class="auth-matrix-section" data-aos="fade-in">
+    <div class="auth-matrix-ambient-glow"></div>
+    <div class="container">
+        <div class="auth-glass-card">
+            
+            <!-- STATE 01: SIGNUP VIEW (INITIAL VIEW) -->
+            <div id="auth-state-signup" class="auth-view-pane active">
+                <div class="auth-pane-header">
+                    <h3>Create <span class="accent-neon">Account</span></h3>
+                </div>
+                <form id="signup-core-form" onsubmit="handleSignupValidation(event)">
+                    <div class="auth-field-group">
+                        <input type="text" id="signup-name" class="premium-auth-input" placeholder="Full Name" pattern="^[A-Za-z\s]+$" oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill out your details.' : 'Name must only contain alphabetic letters and spaces.')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    <div class="auth-field-group space-top">
+                        <input type="email" id="signup-email" class="premium-auth-input" placeholder="Email Address (e.g., operator@gmail.com)" oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill out your details.' : 'Please enter a valid email format.')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    <div class="auth-field-group space-top">
+                        <select id="signup-role" class="premium-auth-input custom-select-mask" required>
+                            <option value="" disabled selected>SELECT ROLE</option>
+                            <option value="admin">Admin Role</option>
+                            <option value="client">Client Role</option>
+                        </select>
+                    </div>
+                    <div class="auth-field-group space-top password-input-wrapper">
+                        <input type="password" id="signup-pass" class="premium-auth-input" placeholder="Create Password" required>
+                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('signup-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
+                    </div>
+                    <div class="auth-field-group space-top password-input-wrapper">
+                        <input type="password" id="signup-confirm-pass" class="premium-auth-input" placeholder="Confirm Password" required>
+                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('signup-confirm-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">SIGN UP</button>
+                    <span class="auth-switch-notice">Already have an account? <button type="button" class="switch-trigger-btn" onclick="switchAuthState('login')">Login</button></span>
+                </form>
+            </div>
+
+            <!-- STATE 02: LOGIN VIEW -->
+            <div id="auth-state-login" class="auth-view-pane">
+                <div class="auth-pane-header">
+                    <h3>Login <span class="accent-neon">Portal</span></h3>
+                </div>
+                <form id="login-core-form" onsubmit="handleLoginRedirection(event)">
+                    <div class="auth-field-group">
+                        <input type="email" id="login-email" class="premium-auth-input" placeholder="Email Address" oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill out your details.' : 'Please enter a valid email format.')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    <div class="auth-field-group space-top password-input-wrapper">
+                        <input type="password" id="login-pass" class="premium-auth-input" placeholder="Password" required>
+                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('login-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
+                    </div>
+                    <div class="auth-forgot-row">
+                        <button type="button" class="switch-trigger-btn minor" onclick="switchAuthState('forgot')">Forgot Credentials Key?</button>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">LOGIN</button>
+                    <span class="auth-switch-notice">Need to register infrastructure profiles? <button type="button" class="switch-trigger-btn" onclick="switchAuthState('signup')">Sign Up</button></span>
+                </form>
+            </div>
+
+            <!-- STATE 03: FORGOT VIEW -->
+            <div id="auth-state-forgot" class="auth-view-pane">
+                <div class="auth-pane-header">
+                    <h3>Recover <span class="accent-neon">Keys</span></h3>
+                </div>
+                <form id="forgot-core-form" onsubmit="handleForgotRecovery(event)">
+                    <div class="auth-field-group">
+                        <input type="email" id="forgot-email" class="premium-auth-input" placeholder="Registered Corporate Email" oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill out your details.' : 'Please enter a valid email format.')" oninput="this.setCustomValidity('')" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">RE-VERIFY Security PIPELINE</button>
+                    <span class="auth-switch-notice">Remember keys? <button type="button" class="switch-trigger-btn" onclick="switchAuthState('login')">Return to Login</button></span>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', once: true });
+
+    function switchAuthState(targetState) {
+        document.querySelectorAll('.auth-view-pane').forEach(view => {
+            view.classList.remove('active');
+            view.style.display = 'none'; 
+        });
+        const activeTarget = document.getElementById(`auth-state-${targetState}`);
+        if (activeTarget) {
+            activeTarget.classList.add('active');
+            activeTarget.style.display = 'block'; 
+        }
+    }
+
+    function togglePasswordVisibility(fieldId, buttonEl) {
+        const passwordField = document.getElementById(fieldId);
+        const icon = buttonEl.querySelector('i');
+        const isPassword = passwordField.type === 'password';
+        passwordField.type = isPassword ? 'text' : 'password';
+        icon.className = isPassword ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
+    }
+
+    function handleSignupValidation(event) {
+        event.preventDefault();
+        if (document.getElementById('signup-pass').value !== document.getElementById('signup-confirm-pass').value) {
+            alert('Passwords do not match. Please realign entries.');
+            return false;
+        }
+        localStorage.setItem('cachedUserRole', document.getElementById('signup-role').value);
+        switchAuthState('login');
+    }
+
+    function handleLoginRedirection(event) {
+        event.preventDefault();
+        const userRole = localStorage.getItem('cachedUserRole');
+        if (userRole === 'admin') window.location.href = 'admin.html';
+        else if (userRole === 'client') window.location.href = 'client.html';
+        else {
+            alert('No operational role detected. Defaulting to Signup.');
+            switchAuthState('signup');
+        }
+    }
+
+    function handleForgotRecovery(event) {
+        event.preventDefault();
+        window.location.href = 'error.html';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => switchAuthState('signup'));
+
+
+
+
+
+
+
+
+    function handleLoginRedirection(event) {
+    event.preventDefault();
+    
+    // Capture the exact input email string entered by the user
+    const emailInput = document.getElementById('login-email').value;
+    localStorage.setItem('authenticatedUserEmail', emailInput);
+    
+    // Pull the cached state choice from internal browser memory securely
+    const userRole = localStorage.getItem('cachedUserRole');
+
+    if (userRole === 'admin') {
+        window.location.href = 'admin.html';
+    } else if (userRole === 'client') {
+        window.location.href = 'client.html';
+    } else {
+        alert('No operational role trace detected. Please switch back to signup configuration view and choose a role first.');
+        switchAuthState('signup');
+    }
+}
+
+
+
+</script>
+</body>
+</html>

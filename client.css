@@ -1,0 +1,707 @@
+/* ==========================================================================
+   PREMIUM ENTERPRISE DASHBOARD SYSTEM MATRIX
+   ========================================================================== */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  /* desktop column array rails setup */
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-100, #062223) !important;
+  /* Locks background canvas dark mode colors tokens */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body {
+  background-color: var(--primary-100, #062223) !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   DYNAMIC INTERFACE STRUCTURAL VIEW-PANE TRACKS
+   ========================================================================== */
+.dashboard-content-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease;
+}
+
+.dashboard-content-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SIDEBAR NAV CONTROL SYSTEM
+   ========================================================================== */
+.dash-sidebar {
+  background-color: var(--neutral-black, #050d0e);
+  border-right: 1px solid rgba(71, 146, 148, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.75rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 3.5rem;
+}
+
+.brand-icon {
+  font-size: 1.75rem;
+}
+
+.sidebar-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar-tab-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-body, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-quantum, all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1));
+}
+
+.sidebar-tab-btn.passive {
+  color: var(--neutral-grey, #8d9898);
+}
+
+.sidebar-tab-btn:hover {
+  background-color: rgba(11, 80, 82, 0.15);
+  color: #ffffff;
+}
+
+.sidebar-tab-btn.active {
+  background-color: var(--primary-color, #0b5052);
+  color: var(--secondary-cyan, #00e5ff);
+  border-left: 3px solid var(--secondary-cyan, #00e5ff);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px dashed rgba(141, 152, 152, 0.15);
+  padding-top: 1.5rem;
+}
+
+.logout-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--fs-caption, 0.875rem);
+  color: var(--semantic-error, #d72c2c);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   MAIN SYSTEM TELEMETRY DISPLAY VIEWPORT PANELS
+   ========================================================================== */
+.dash-main-viewport {
+  padding: 3rem;
+  overflow-y: auto;
+}
+
+.dash-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.12);
+  padding-bottom: 1.5rem;
+}
+
+.header-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--neutral-black, #050d0e);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(71, 146, 148, 0.2);
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(11, 80, 82, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-gold, #cfa365);
+}
+
+.profile-name {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.profile-role {
+  display: block;
+  font-size: var(--fs-footnote, 0.75rem);
+}
+
+/* --- Analytics Counters Component Ribbons --- */
+.metrics-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.15) 0%, rgba(5, 13, 14, 0.4) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.18);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.metric-lbl {
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  color: var(--neutral-light-grey, #dae1e1);
+  font-weight: 600;
+}
+
+.metric-icon-box {
+  font-size: 1.25rem;
+}
+
+/* --- Data Table Modules --- */
+.dash-data-table-container {
+  background-color: var(--neutral-black, #050d0e);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.table-container-header {
+  margin-bottom: 2rem;
+}
+
+.responsive-table-overflow-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.premium-dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.premium-dash-table th {
+  color: var(--neutral-grey, #8d9898);
+  font-weight: 600;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.2);
+  font-size: var(--fs-caption);
+}
+
+.premium-dash-table td {
+  padding: 18px;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.1);
+}
+
+.status-chip {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: var(--fs-footnote);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   HAMBURGER INTERACTIVE MOBILE TRIGGER STYLE DESIGNS
+   ========================================================================== */
+.dash-hamburger-trigger {
+  display: none;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--primary-color, #0b5052);
+  border: 1px solid rgba(71, 146, 148, 0.3);
+  color: #ffffff;
+  font-size: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: var(--transition-quantum);
+}
+
+.dash-hamburger-trigger .close-icon {
+  display: none;
+}
+
+.dash-hamburger-trigger.menu-active .open-icon {
+  display: none;
+}
+
+.dash-hamburger-trigger.menu-active .close-icon {
+  display: block;
+}
+
+.dash-hamburger-trigger.menu-active {
+  background-color: var(--secondary-gold, #cfa365);
+  color: var(--neutral-black, #050d0e);
+}
+
+.sidebar-shroud-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 13, 14, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-shroud-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY DRAWER OVERRIDES
+   ========================================================================== */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-hamburger-trigger {
+    display: inline-flex;
+  }
+
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    height: 100vh;
+    z-index: 950;
+    box-shadow: 30px 0 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: var(--neutral-black, #050d0e);
+  }
+
+  .dash-sidebar.mobile-open {
+    transform: translateX(290px);
+  }
+
+  .sidebar-brand {
+    margin-bottom: 2.5rem;
+  }
+
+  .sidebar-nav ul {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .dash-main-viewport {
+    padding: 6rem 1.25rem 2rem 1.25rem;
+  }
+
+  .dash-header-bar {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .metrics-ribbon-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dash-data-table-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   CLIENT PANEL DYNAMIC GRAPHICS OVERLAYS
+   ========================================================================== */
+.metrics-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Clean three-column spread for desktop viewports */
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.15) 0%, rgba(5, 13, 14, 0.4) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.18);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-quantum);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(71, 146, 148, 0.35);
+}
+
+.card-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.metric-lbl {
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  color: var(--neutral-light-grey);
+  font-weight: 600;
+}
+
+.metric-icon-box {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.metric-big-counter {
+  font-family: var(--font-body);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.metric-card p.caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-footnote);
+  color: var(--neutral-grey);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+/* Linear Progress Bar Tracks */
+.metric-progress-track {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  margin-top: auto;
+  overflow: hidden;
+}
+
+.metric-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .metrics-ribbon-grid {
+    grid-template-columns: 1fr;
+    /* Collapses metric streams into a single-column stack on mobile devices */
+    gap: 1.25rem;
+  }
+
+  .metric-card {
+    padding: 1.5rem;
+  }
+
+  .metric-big-counter {
+    font-size: 1.85rem;
+    /* Shrinks the text layout size to prevent long strings from clipping */
+  }
+
+  .dash-data-table-container {
+    padding: 1.75rem 1.25rem;
+    /* Compresses internal borders to maximize visibility space */
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PRODUCTION CLIENT BILLING LEDGER SYSTEM
+   ========================================================================== */
+.billing-terminal-split-matrix {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr; /* Elite asymmetrical column balancing array */
+  gap: 2rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.billing-token-balance-card-box {
+  background-color: rgba(5, 13, 14, 0.4);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.billing-balance-indicator-big {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--secondary-cyan);
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.balance-unit-txt {
+  font-size: var(--fs-h4);
+  color: var(--secondary-gold);
+  font-weight: 700;
+}
+
+.billing-usage-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.billing-meta-metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(141, 152, 152, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.billing-meta-metric-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.text-cyan { color: var(--secondary-cyan); }
+.text-gold { color: var(--secondary-gold); }
+
+.billing-deposit-btn {
+  padding: 14px 24px;
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .billing-terminal-split-matrix {
+    grid-template-columns: 1fr; /* Strip side panels down to full-width horizontal rows */
+    gap: 1.5rem;
+  }
+
+  .billing-summary-balance-pane .dash-data-table-container {
+    padding: 2rem 1.25rem; /* Compress internal clearances safely for handheld frames */
+  }
+
+  .billing-balance-indicator-big {
+    font-size: 2rem; /* Gracefully scales display text metrics inside narrow screen viewports */
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PRODUCTION CLIENT SUPPORT CONSOLE TERMINAL
+   ========================================================================== */
+.support-terminal-split-matrix {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr; /* Asymmetric balancing layout layout favoring submission parameters */
+  gap: 2rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.support-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.support-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.support-field-label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--neutral-light-grey);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.premium-support-input {
+  width: 100%; max-width: 100%;
+  background-color: var(--neutral-black);
+  border: 1px solid rgba(71, 146, 148, 0.25);
+  border-radius: 8px; padding: 14px 16px;
+  color: #ffffff; font-family: var(--font-body); font-size: 0.95rem;
+  outline: none; box-sizing: border-box;
+  transition: var(--transition-quantum);
+}
+
+.premium-support-input:focus {
+  border-color: var(--secondary-cyan);
+  background-color: rgba(11, 80, 82, 0.1);
+}
+
+.premium-support-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: var(--lh-body);
+}
+
+.support-submit-btn {
+  padding: 14px 28px;
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* --- Knowledge Base Interactive Documentation Links --- */
+.support-kb-links-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kb-document-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(5, 13, 14, 0.4);
+  border: 1px solid rgba(71, 146, 148, 0.1);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  transition: var(--transition-quantum);
+}
+
+.kb-document-card:hover {
+  border-color: rgba(0, 229, 255, 0.3);
+  background-color: rgba(11, 80, 82, 0.15);
+  transform: translateX(4px);
+}
+
+.kb-card-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.kb-doc-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.text-cyan { color: var(--secondary-cyan); }
+.text-gold { color: var(--secondary-gold); }
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .support-terminal-split-matrix {
+    grid-template-columns: 1fr; /* Collapses dual column grids straight to a vertical stream line stack */
+    gap: 1.5rem;
+  }
+
+  .support-form-row {
+    grid-template-columns: 1fr; /* Split selection forms collapse to single layout grids on phone displays */
+    gap: 1.25rem;
+  }
+
+  .support-form-pane .dash-data-table-container {
+    padding: 2rem 1.25rem; /* Shorthand space optimizations protect element margins from boundaries */
+  }
+
+  .support-submit-btn {
+    width: 100%;
+  }
+}

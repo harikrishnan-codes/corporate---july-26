@@ -1,0 +1,784 @@
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-100) !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body {
+  background-color: var(--primary-100) !important;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-content-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.dashboard-content-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dash-sidebar {
+  background-color: var(--neutral-black);
+  border-right: 1px solid rgba(71, 146, 148, 0.15);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.75rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 3.5rem;
+  color: #fff;
+}
+
+.brand-icon {
+  font-size: 1.75rem;
+}
+
+.sidebar-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.sidebar-tab-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition-quantum);
+}
+
+.sidebar-tab-btn.passive {
+  color: var(--neutral-grey);
+}
+
+.sidebar-tab-btn:hover {
+  background-color: rgba(11, 80, 82, 0.15);
+  color: #fff;
+}
+
+.sidebar-tab-btn.active {
+  background-color: var(--primary-color);
+  color: var(--secondary-cyan);
+  border-left: 3px solid var(--secondary-cyan);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px dashed rgba(141, 152, 152, 0.15);
+  padding-top: 1.5rem;
+}
+
+.logout-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--semantic-error);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.dash-main-viewport {
+  padding: 3rem;
+  overflow-y: auto;
+}
+
+.dash-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.12);
+  padding-bottom: 1.5rem;
+}
+
+.header-glow {
+  color: var(--secondary-cyan);
+}
+
+.header-profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: var(--neutral-black);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(71, 146, 148, 0.2);
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(11, 80, 82, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-gold);
+}
+
+.profile-name {
+  display: block;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.profile-role {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--neutral-grey);
+}
+
+.metrics-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.15) 0%, rgba(5, 13, 14, 0.4) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.18);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.card-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.metric-lbl {
+  font-size: 0.875rem;
+  color: var(--neutral-light-grey);
+  font-weight: 600;
+}
+
+.dash-data-table-container {
+  background-color: var(--neutral-black);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.table-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.responsive-table-overflow-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.premium-dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.premium-dash-table th {
+  color: var(--neutral-grey);
+  font-weight: 600;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.2);
+  font-size: 0.875rem;
+}
+
+.premium-dash-table td {
+  padding: 18px;
+  border-bottom: 1px solid rgba(71, 146, 148, 0.1);
+  color: #fff;
+}
+
+.status-chip {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Hamburger Triggers */
+.dash-hamburger-trigger {
+  display: none;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  border: 1px solid rgba(71, 146, 148, 0.3);
+  color: #ffffff;
+  font-size: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.dash-hamburger-trigger .close-icon {
+  display: none;
+}
+
+.dash-hamburger-trigger.menu-active .open-icon {
+  display: none;
+}
+
+.dash-hamburger-trigger.menu-active .close-icon {
+  display: block;
+}
+
+.sidebar-shroud-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 13, 14, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-shroud-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-hamburger-trigger {
+    display: inline-flex;
+  }
+
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    height: 100vh;
+    z-index: 950;
+    background-color: var(--neutral-black);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dash-sidebar.mobile-open {
+    transform: translateX(290px);
+  }
+
+  .dash-main-viewport {
+    padding: 6rem 1.25rem 2rem 1.25rem;
+  }
+
+  .dash-header-bar {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .table-container-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ENRICHED TELEMETRY METRICS RIBBON SYSTEM
+   ========================================================================== */
+.metrics-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4-column corporate matrix distribution on desktop */
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.15) 0%, rgba(5, 13, 14, 0.4) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.18);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(71, 146, 148, 0.35);
+}
+
+.card-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.metric-lbl {
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  color: var(--neutral-light-grey);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.metric-icon-box {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.metric-big-counter {
+  font-family: var(--font-body);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.metric-card p.caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-footnote);
+  color: var(--neutral-grey);
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+
+/* Micro Tracking Progress Bar Elements */
+.metric-progress-track {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  margin-top: auto; /* Forces execution tracks flush to lower layout limits */
+  overflow: hidden;
+}
+
+.metric-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* Mapped Root Dynamic Color Bindings */
+.success-accent { border-left: 4px solid var(--semantic-success); }
+.success-accent .metric-icon-box { color: var(--semantic-success); }
+
+.warning-accent { border-left: 4px solid var(--semantic-warning); }
+.warning-accent .metric-icon-box { color: var(--semantic-warning); }
+
+.info-accent { border-left: 4px solid var(--secondary-cyan); }
+.info-accent .metric-icon-box { color: var(--secondary-cyan); }
+
+.gold-accent { border-left: 4px solid var(--secondary-gold); }
+.gold-accent .metric-icon-box { color: var(--secondary-gold); }
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .metrics-ribbon-grid {
+    grid-template-columns: repeat(2, 1fr); /* Collapses into a balanced 2x2 grid framework for tablet/mobile layout spacing */
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .metric-card {
+    padding: 1.5rem; /* Slightly tightens inner padding parameters on small screens */
+  }
+
+  .metric-big-counter {
+    font-size: 1.75rem; /* Shrinks large integers smoothly to prevent string boundaries breaking */
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-ribbon-grid {
+    grid-template-columns: 1fr; /* True vertical stacking optimization for micro-viewport handheld targets */
+    gap: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PRODUCTION NODE MANAGEMENT TERMINAL CONFIGURATION
+   ========================================================================== */
+.node-terminal-split-matrix {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr; /* Elite asymmetrical editorial control rails layout */
+  gap: 2rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.node-id-txt {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.text-cyan { color: var(--secondary-cyan); }
+.text-gold { color: var(--secondary-gold); }
+
+/* --- Resource Bar Element Components Layout --- */
+.resource-distribution-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resource-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.res-lbl {
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  color: var(--neutral-light-grey);
+  font-weight: 500;
+}
+
+.res-val {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.cluster-operational-footer-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: rgba(5, 13, 14, 0.4);
+  border: 1px solid rgba(71, 146, 148, 0.1);
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-top: 2.5rem;
+}
+
+.cluster-operational-footer-notice i {
+  font-size: 1rem;
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .node-terminal-split-matrix {
+    grid-template-columns: 1fr; /* Instantly collapses split-columns to single row terminal stack tracking lines */
+    gap: 1.5rem;
+  }
+
+  .node-resources-summary-pane .dash-data-table-container {
+    padding: 2rem 1.25rem; /* Optimizes padding scales inside metrics sub-containers on handheld screen limits */
+  }
+
+  .cluster-operational-footer-notice {
+    margin-top: 1.75rem; /* Compresses internal block clearance safely */
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PRODUCTION SECURITY LEDGER MATRIX SYSTEM
+   ========================================================================== */
+.security-terminal-split-matrix {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr; /* Matches the clean asymmetric administrative layouts layout */
+  gap: 2rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.mono-font {
+  font-family: 'Orbitron', monospace; /* Uses system technical typography scale tokens */
+  font-size: var(--fs-caption);
+  letter-spacing: 0.05em;
+}
+
+.text-err { color: var(--semantic-error); }
+
+/* --- Threat Index Value Visual Panel Box --- */
+.security-threat-index-score-box {
+  background-color: rgba(5, 13, 14, 0.4);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.threat-level-indicator-big {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.threat-level-indicator-big.text-success {
+  color: var(--semantic-success);
+  text-shadow: 0 0 20px rgba(27, 202, 109, 0.2);
+}
+
+.index-scale {
+  font-size: var(--fs-h5);
+  color: var(--neutral-grey);
+}
+
+/* --- Parameter Node Meta List Streams --- */
+.security-toggle-parameter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.security-meta-metric-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(141, 152, 152, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.security-meta-metric-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.status-chip.error {
+  background-color: var(--semantic-error-10);
+  color: var(--semantic-error-100);
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .security-terminal-split-matrix {
+    grid-template-columns: 1fr; /* Drops splitting column grids straight to horizontal container tracks */
+    gap: 1.5rem;
+  }
+
+  .security-parameters-summary-pane .dash-data-table-container {
+    padding: 2rem 1.25rem; /* Rescale padding layouts cleanly for smaller phone display parameters */
+  }
+
+  .threat-level-indicator-big {
+    font-size: 2.5rem; /* Gracefully scales display text metrics inside responsive frames */
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   PRODUCTION SYSTEMS VARIABLES SCHEMA MANAGER
+   ========================================================================== */
+.settings-terminal-split-matrix {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr; /* Asymmetric balance layout favoring settings control areas */
+  gap: 2rem;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.settings-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.settings-field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-field-label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--neutral-light-grey);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.premium-settings-input {
+  width: 100%;
+  max-width: 100%; /* Protects inputs from spilling past form borders */
+  background-color: var(--neutral-black);
+  border: 1px solid rgba(71, 146, 148, 0.25);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: var(--transition-quantum);
+}
+
+.premium-settings-input:focus {
+  border-color: var(--secondary-cyan);
+  background-color: rgba(11, 80, 82, 0.1);
+}
+
+/* Color Picker Input Swatch Alignment Hooks */
+.color-picker-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.color-preview-swatch {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.padding-left-swatch {
+  padding-left: 44px !important;
+}
+
+.settings-save-btn {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+/* --- Read-Only Variable Token Code Registry Items --- */
+.settings-token-variable-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.token-registry-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(5, 13, 14, 0.4);
+  border: 1px solid rgba(71, 146, 148, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+
+.token-name-tag {
+  font-family: var(--font-heading);
+  font-size: var(--fs-footnote);
+  color: var(--secondary-gold);
+  font-weight: 600;
+}
+
+.token-value-code {
+  font-family: 'Orbitron', monospace;
+  font-size: var(--fs-footnote);
+  color: var(--secondary-cyan);
+  background-color: rgba(0, 229, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+/* ==========================================================================
+   CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
+   ========================================================================== */
+@media (max-width: 768px) {
+  .settings-terminal-split-matrix {
+    grid-template-columns: 1fr; /* Drops asymmetric split rails straight to a unified single column view stack */
+    gap: 1.5rem;
+  }
+
+  .settings-form-row {
+    grid-template-columns: 1fr; /* Form elements stack up horizontally on narrow phone viewports */
+    gap: 1.25rem;
+  }
+
+  .settings-control-pane .dash-data-table-container {
+    padding: 2rem 1.25rem; /* Shorthand padding compression safe logic optimization passes */
+  }
+
+  .settings-save-btn {
+    width: 100%; /* Stretches validation trigger action links full-bleed inside screen containers */
+    text-align: center;
+  }
+}
