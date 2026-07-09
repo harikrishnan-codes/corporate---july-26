@@ -6,7 +6,7 @@
   width: 100%;
   height: 100vh;
   padding: 12rem 0 8rem 0; /* Clear space beneath fixed desktop navigation bars */
-  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+  background-image: url('./assets/intro.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1374,7 +1374,7 @@
 .cta-parallax-bg {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80');
+  background-image: url('./assets/cta.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Parallax scrolling effect on desktop frames */
@@ -1387,7 +1387,7 @@
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   /* Fuses rich dark teal background tokens down into pure dark canvas base colors */
-  background: radial-gradient(circle at 50% 50%, rgba(11, 80, 82, 0.45) 0%, rgba(5, 13, 14, 0.95) 90%),
+  background: radial-gradient(circle at 50% 50%, rgba(11, 80, 82, 0.45) 0%, rgba(5, 13, 14, 0.75) 90%),
               linear-gradient(180deg, rgba(5, 13, 14, 0.6) 0%, rgba(5, 13, 14, 1) 100%);
   z-index: 2;
   pointer-events: none;
