@@ -509,71 +509,77 @@
 
 
 
-
 /* ==========================================================================
    PREMIUM ENTERPRISE CASE MATRIX SYSTEM
    ========================================================================== */
 .premium-case-matrix-section {
-  background-color: #050d0e;
-  padding: 4rem 0 10rem 0;
+  background-color: var(--neutral-black, #050d0e);
+  padding: 8rem 0 10rem 0;
   position: relative;
+  overflow: hidden;
   z-index: 10;
 }
 
+/* Layered depth ambient layout backdrop glows */
 .case-matrix-ambient-glow {
   position: absolute;
-  top: 50%; right: 20%; width: 500px; height: 500px;
+  top: 20%; right: 10%; width: 600px; height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
-  filter: blur(110px);
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 65%);
+  filter: blur(130px);
   pointer-events: none;
   z-index: 1;
 }
 
-/* --- Section Header Block --- */
+.case-matrix-ambient-glow.position-two {
+  top: 60%; left: -10%; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(207, 163, 101, 0.03) 0%, transparent 65%);
+}
+
+/* --- Section Header Block Elements --- */
 .case-header-box {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 5rem auto;
-  padding: 0 1rem;
+  max-width: 850px;
+  margin: 0 auto 6rem auto;
+  padding: 0 2rem;
   position: relative;
   z-index: 5;
 }
 
 .case-header-box p{
-    margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .case-subtitle {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-body, 'Inter', sans-serif);
   color: var(--secondary-gold, #cfa365);
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .case-subtitle::before {
   content: '';
   display: inline-block;
-  width: 16px;
+  width: 24px;
   height: 2px;
   background-color: var(--secondary-cyan, #00e5ff);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
 }
 
 .case-main-title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 3.25rem;
+  font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #ffffff 30%, var(--neutral-grey, #8d9898) 100%);
+  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -581,35 +587,215 @@
 
 .case-lead-desc {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.15rem;
+  line-height: 1.75;
   color: var(--neutral-grey, #8d9898);
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
-/* --- Matrix Grid --- */
+/* ==========================================================================
+   MATRIX GRID & BENTO CARD DESIGNS
+   ========================================================================== */
 .case-matrix-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   position: relative;
   z-index: 5;
 }
 
-/* (Include your previous .horizontal-case-card and sub-styles here) */
+/* Premium High-End Glass Architecture Card Framework */
+.horizontal-case-card {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(18, 27, 34, 0.45) 0%, rgba(11, 17, 22, 0.7) 100%);
+  border: 1px solid rgba(71, 146, 148, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(0);
+}
+
+/* Micro Neon Glow Tracker Strips */
+.case-card-glow-edge {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--secondary-cyan, #00e5ff), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+}
+
+.case-card-glow-edge.secure-glow {
+  background: linear-gradient(90deg, transparent, var(--secondary-gold, #cfa365), transparent);
+}
+
+/* --- Image Viewport Architecture Handles --- */
+.case-image-viewport {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--neutral-black, #050d0e);
+}
+
+.case-portal-asset {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-image-overlay-shroud {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(5, 13, 14, 0) 40%, rgba(5, 13, 14, 0.75) 100%);
+  transition: background 0.4s ease;
+}
+
+/* --- Content Typography Presentation Rails --- */
+.case-content-viewport {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.case-meta-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.case-tag {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary-gold, #cfa365);
+}
+
+.case-metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--secondary-cyan, #00e5ff);
+}
+
+.case-metric-badge.security {
+  background-color: rgba(27, 202, 109, 0.06);
+  border-color: rgba(27, 202, 109, 0.15);
+  color: var(--semantic-success, #1bca6d);
+}
+
+.case-title-link h3 {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1.25rem;
+}
+
+.case-title-link a {
+  color: var(--neutral-white, #ffffff);
+  transition: color 0.3s ease;
+}
+
+.case-excerpt-desc {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--neutral-grey, #8d9898);
+  margin-bottom: 2rem;
+}
+
+.case-footer-action {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.case-read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--neutral-white, #ffffff);
+  transition: color 0.3s ease;
+}
+
+.transition-arrow {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   PREMIUM HOVER DYNAMICS & RICH INTERACTIVE MECHANICS
+   ========================================================================== */
+.horizontal-case-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 229, 255, 0.08);
+}
+
+/* Conditional border glow match targeting card layouts types */
+.horizontal-case-card:has(.secure-glow):hover {
+  border-color: rgba(207, 163, 101, 0.3);
+  box-shadow: 0 30px 60px rgba(207, 163, 101, 0.06);
+}
+
+.horizontal-case-card:hover .case-card-glow-edge {
+  opacity: 1;
+}
+
+.horizontal-case-card:hover .case-portal-asset {
+  transform: scale(1.06); /* Fluid high-end Ken Burns image scaling transition */
+}
+
+.horizontal-case-card:hover .case-image-overlay-shroud {
+  background: linear-gradient(to bottom, rgba(5, 13, 14, 0) 30%, rgba(5, 13, 14, 0.85) 100%);
+}
+
+.horizontal-case-card:hover .case-title-link a {
+  color: var(--secondary-cyan, #00e5ff);
+}
+
+.horizontal-case-card:has(.secure-glow):hover .case-title-link a {
+  color: var(--secondary-gold, #cfa365);
+}
+
+.horizontal-case-card:hover .transition-arrow {
+  transform: translateX(6px);
+  color: var(--secondary-cyan, #00e5ff);
+}
+
+.horizontal-case-card:has(.secure-glow):hover .transition-arrow {
+  color: var(--secondary-gold, #cfa365);
+}
 
 /* ==========================================================================
    CLASSY 768PX RESPONSIVE BREAKPOINT QUERY LAYOUT
    ========================================================================== */
 @media (max-width: 768px) {
   .premium-case-matrix-section {
-    padding: 3rem 0 6rem 0;
+    padding: 5rem 0 6rem 0;
   }
 
   .case-header-box {
-    margin-bottom: 3.5rem;
+    margin-bottom: 4rem;
+    padding: 0 1.5rem;
   }
 
   .case-subtitle {
@@ -619,29 +805,42 @@
     width: 100%;
   }
 
+  .case-subtitle::before {
+    width: 16px;
+  }
+
   .case-main-title {
-    font-size: 2.25rem;
-    line-height: 1.25;
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
 
   .case-lead-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    padding: 0 0.5rem;
+    font-size: 1rem;
+    line-height: 1.65;
   }
 
   .case-matrix-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 0 1.25rem;
+    grid-template-columns: 1fr; /* Instantly stack cards cleanly on device displays */
+    gap: 3rem;
+    padding: 0 1.5rem;
   }
 
   .horizontal-case-card {
-    grid-template-columns: 1fr;
     border-radius: 16px;
   }
-}
 
+  .case-image-viewport {
+    height: 220px; /* Slight scaling correction for smaller phone displays */
+  }
+
+  .case-content-viewport {
+    padding: 2rem; /* Closes inner gaps safely to maximize screen canvas area */
+  }
+
+  .case-title-link h3 {
+    font-size: 1.35rem;
+  }
+}
 
 
 
@@ -1421,7 +1620,7 @@
 .blog-cta-parallax-bg {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+  background-image: url('./assets/blog\ 10.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Parallax shifting effect on desktop screen sizes */
