@@ -184,65 +184,73 @@
 
 
 
-
 /* ==========================================================================
-   PREMIUM ASYMMETRIC STORY & PURPOSE SYSTEM
+   PREMIUM ASYMMETRIC PARALLAX STORY SYSTEM
    ========================================================================== */
 .about-purpose-section {
-  background-color: #050d0e; /* Fixed locked dark baseline background */
-  padding: 8rem 0;
+  background-color: var(--primary-100, #062223);
+  padding: 12rem 0;
   position: relative;
   overflow: hidden;
   z-index: 10;
 }
 
+/* Layered depth ambient layout backdrop glows */
 .purpose-glow-orb {
   position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(71, 146, 148, 0.12) 0%, transparent 70%);
-  filter: blur(120px);
   pointer-events: none;
   z-index: 1;
+  mix-blend-mode: screen;
+}
+
+.purpose-glow-orb.pattern-one {
+  bottom: -15%; right: -5%; width: 650px; height: 650px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 65%);
+  filter: blur(140px);
+}
+
+.purpose-glow-orb.pattern-two {
+  top: -10%; left: -10%; width: 550px; height: 550px;
+  background: radial-gradient(circle, rgba(207, 163, 101, 0.04) 0%, transparent 65%);
+  filter: blur(120px);
 }
 
 .purpose-split-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 6rem;
+  gap: 8rem;
   align-items: flex-start;
   position: relative;
   z-index: 5;
 }
 
 /* ==========================================================================
-   LEFT COLUMN: STICKY ANCHORED TYPOGRAPHY
+   LEFT COLUMN: STICKY GRID TIMELINE INTERACTION
    ========================================================================== */
 .purpose-heading-column {
   position: sticky;
-  top: 130px; /* Secure positioning coordinates below fixed website main header */
+  top: 140px;
+  will-change: transform;
 }
 
 .purpose-subtitle {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-body, 'Inter', sans-serif);
   color: var(--secondary-gold, #cfa365);
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.25em; /* Luxury corporate tracking tracking */
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.5rem;
 }
 
 .purpose-subtitle::before {
   content: '';
   display: inline-block;
-  width: 16px;
+  width: 20px;
   height: 2px;
   background-color: var(--secondary-cyan, #00e5ff);
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
@@ -250,31 +258,82 @@
 
 .purpose-main-title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
-  
-  /* High-end metallic text gradient mask */
-  background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #ffffff 30%, var(--neutral-grey, #8d9898) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* --- Premium Micro-Timeline Array --- */
+.purpose-timeline-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  border-left: 2px solid rgba(141, 152, 152, 0.15);
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.timeline-node {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: calc(-1.75rem - 6px); top: 4px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background-color: var(--neutral-dark-grey, #3c4a4b);
+  border: 2px solid var(--primary-100, #062223);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-node.active::before { background-color: var(--secondary-gold); }
+.timeline-node.current::before {
+  background-color: var(--secondary-cyan);
+  box-shadow: 0 0 12px var(--secondary-cyan);
+}
+
+.node-year {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.node-lbl {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--neutral-grey);
+  margin-top: 0.15rem;
+}
+
+.timeline-node:hover {
+  transform: translateX(4px);
+}
+
 /* ==========================================================================
-   RIGHT COLUMN: EDITORIAL PROSE RUNS
+   RIGHT COLUMN: TEXT VIEWPORTS & GLASS CARDS
    ========================================================================== */
 .purpose-text-column {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
 .purpose-lead-text {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: 1.35rem;
+  line-height: 1.75;
   color: var(--neutral-white, #ffffff);
   font-weight: 500;
 }
@@ -282,36 +341,94 @@
 .purpose-body-text {
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 1.05rem;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--neutral-grey, #8d9898);
 }
 
-/* High-End Executive Blockquote Accent Frame */
+/* Glassmorphic Callout Panel Layout Box */
 .purpose-executive-callout {
-  background: linear-gradient(90deg, rgba(11, 80, 82, 0.15) 0%, transparent 100%);
-  border-left: 3px solid var(--secondary-gold, #cfa365); /* Elegant gold line replaces heavy boxes */
-  padding: 2rem 2.5rem;
+  position: relative;
+  background: linear-gradient(135deg, rgba(11, 80, 82, 0.08) 0%, rgba(5, 13, 14, 0.35) 100%);
+  border-left: 3px solid var(--secondary-gold, #cfa365);
+  border-radius: 0 20px 20px 0;
+  padding: 3rem 3.5rem;
   margin: 1rem 0;
-  border-radius: 0 16px 16px 0;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.4s ease, transform 0.4s ease;
 }
 
-.purpose-executive-callout {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 1.1rem;
-  line-height: 1.65;
+.callout-glass-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1;
+}
+
+.callout-quote-content {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.75;
   color: #ffffff;
   font-style: italic;
+  position: relative;
+  z-index: 2;
 }
 
 .callout-author {
   display: block;
-  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-family: var(--font-heading);
   font-size: 0.85rem;
+  font-weight: 700;
   color: var(--secondary-cyan, #00e5ff);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-style: normal;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.purpose-executive-callout:hover {
+  border-color: var(--secondary-cyan, #00e5ff);
+  transform: translateY(-2px);
+}
+
+/* Secondary Narrative Insight Card Blueprint */
+.purpose-insight-card {
+  display: flex;
+  gap: 24px;
+  background-color: rgba(5, 13, 14, 0.4);
+  border: 1px solid rgba(71, 146, 148, 0.12);
+  border-radius: 16px;
+  padding: 2.25rem;
   margin-top: 1rem;
+  transition: border-color 0.4s ease;
+}
+
+.purpose-insight-card:hover {
+  border-color: rgba(0, 229, 255, 0.25);
+}
+
+.insight-icon-frame {
+  font-size: 1.5rem;
+  color: var(--secondary-cyan);
+  width: 48px; height: 48px;
+  background-color: rgba(11, 80, 82, 0.25);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insight-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
 }
 
 /* ==========================================================================
@@ -319,51 +436,72 @@
    ========================================================================== */
 @media (max-width: 768px) {
   .about-purpose-section {
-    padding: 5rem 0;
+    padding: 7rem 0;
   }
 
   .purpose-split-grid {
-    grid-template-columns: 1fr; /* Flatten asymmetric tracks seamlessly on mobile */
-    gap: 3rem;
-    padding: 0 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: 0 1.5rem;
   }
 
   .purpose-heading-column {
     position: relative;
-    top: 0; /* Release sticky layout pins for clean natural scrolling rules on mobile viewports */
+    top: 0;
     text-align: center;
-  }
-
-  .purpose-subtitle {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    justify-content: center;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .purpose-main-title {
-    font-size: 2.25rem;
-    line-height: 1.25;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  /* Compresses timeline horizontally to balance mobile width restrictions */
+  .purpose-timeline-widget {
+    flex-direction: row;
+    border-left: none;
+    border-bottom: 2px solid rgba(141, 152, 152, 0.15);
+    padding-left: 0;
+    padding-bottom: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .timeline-node::before {
+    left: 50%; top: auto; bottom: calc(-1.5rem - 6px);
+    transform: translateX(-50%);
+  }
+  
+  .timeline-node:hover {
+    transform: translateY(-2px);
   }
 
   .purpose-lead-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.65;
     text-align: center;
   }
 
   .purpose-body-text {
-    font-size: 0.95rem;
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .purpose-executive-callout {
-    padding: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.55;
+    padding: 2rem 1.75rem;
+  }
+
+  .purpose-insight-card {
+    flex-direction: column;
+    gap: 16px;
+    padding: 1.75rem;
   }
 }
-
 
 
 

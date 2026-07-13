@@ -78,14 +78,11 @@
 
 
 
-
-<!-- Enterprise Communications Hub Grid Section -->
-<section class="premium-contact-matrix-section" data-aos="fade-up">
+<section class="premium-contact-matrix-section" id="communications-hub" data-aos="fade-up">
     <div class="contact-matrix-glow"></div>
 
     <div class="container contact-matrix-layout">
         
-        <!-- Left Side Column: Corporate Access Directories -->
         <div class="contact-directory-pane" data-aos="fade-right" data-aos-delay="100">
             <span class="directory-subtitle">Direct Access</span>
             <h2 class="directory-main-title">Operational Headquarters</h2>
@@ -112,7 +109,6 @@
             </div>
         </div>
 
-        <!-- Right Side Column: Glassmorphic Secure Intake Form Panel -->
         <div class="contact-form-pane" data-aos="fade-left" data-aos-delay="250">
             <div class="contact-glass-card">
                 <div class="contact-card-header">
@@ -120,9 +116,8 @@
                     <p>All communication lines route securely through end-to-end tokenized proxy clusters.</p>
                 </div>
 
-                <form id="enterprise-secure-contact-form" class="contact-form-element" action="error.html" method="GET">
+                <form id="enterprise-secure-contact-form" class="contact-form-element" onsubmit="handleSecureContactSubmit(event)">
                     <div class="contact-input-row">
-                        <!-- Name Field: Letters and spaces validation with custom alert hooks -->
                         <div class="contact-field-group">
                             <label for="client-name" class="contact-field-label">Full Name</label>
                             <input 
@@ -135,7 +130,7 @@
                                 oninput="this.setCustomValidity('')"
                                 required>
                         </div>
-                        <!-- Email Field: Standard email structure format error handling blocks -->
+                        
                         <div class="contact-field-group">
                             <label for="client-email" class="contact-field-label">Email Address</label>
                             <input 
@@ -143,13 +138,13 @@
                                 id="client-email" 
                                 class="premium-contact-input" 
                                 placeholder="m.vance@enterprise.com" 
-                                oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill in your details.' : 'Please enter a valid email format.')"
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill in your details.' : 'plz enter proper mail id formate.')"
                                 oninput="this.setCustomValidity('')"
                                 required>
                         </div>
                     </div>
 
-                    <!-- Dropdown Field: Sealed inside an explicit overflow configuration rule -->
                     <div class="contact-field-group target-space-top">
                         <label for="client-project" class="contact-field-label">Target Infrastructure Focus</label>
                         <select id="client-project" class="premium-contact-input custom-select-mask" required>
@@ -174,7 +169,6 @@
 
     </div>
 </section>
-
 
 
 
@@ -381,6 +375,32 @@
             delay: 50,
             disable: 'mobile' // Optional: bypasses layout computations on small viewports for ultra-fluid performance
         });
+    </script>
+
+
+    <script>
+
+/**
+ * Strict Security Contact Form Validation Interceptor Pipeline
+ * Blocks routing unless the custom TLD regex pattern fully validates.
+ */
+function handleSecureContactSubmit(event) {
+    // 1. Stop native form action bubbles immediately to prevent accidental routing
+    event.preventDefault();
+
+    const emailInputNode = document.getElementById('client-email');
+
+    // 2. Performance Check: If the email structure lacks an extension suffix, throw error popups
+    if (!emailInputNode.checkValidity()) {
+        // Displays your precise native validation string: "plz enter proper mail id formate."
+        emailInputNode.reportValidity(); 
+        return false; // Safely halts thread execution here
+    }
+
+    // 3. SUCCESS PATHWAY: Only executed if name@domain.extension checks out 100%
+    window.location.href = 'error.html';
+}
+
     </script>
 
 

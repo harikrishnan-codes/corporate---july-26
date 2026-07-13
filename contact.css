@@ -4,12 +4,14 @@
 .contact-hero-canvas {
   position: relative;
   width: 100%;
-  padding: 14rem 0 8rem 0; /* Clear space beneath fixed desktop navigation bars */
+  padding: 14rem 0 8rem 0;
+  /* Clear space beneath fixed desktop navigation bars */
   background-image: url('./assets/cta\ 2.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Elegant desktop parallax shift effect */
+  background-attachment: fixed;
+  /* Elegant desktop parallax shift effect */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,10 +23,13 @@
 /* --- Deep Corporate Image Shroud Blending Matrices --- */
 .hero-image-shroud {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   /* Blends photographic assets directly down into your dark corporate palette */
   background: radial-gradient(circle at 50% 50%, rgba(11, 80, 82, 0.35) 0%, rgba(5, 13, 14, 0.95) 90%),
-              linear-gradient(180deg, rgba(5, 13, 14, 0.4) 0%, rgba(5, 13, 14, 1) 100%);
+    linear-gradient(180deg, rgba(5, 13, 14, 0.4) 0%, rgba(5, 13, 14, 1) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -57,7 +62,8 @@
   max-width: 840px;
   margin: 0 auto;
   text-align: center;
-  margin-top: -80px; /* Precise layout elevation adjustment string */
+  margin-top: -80px;
+  /* Precise layout elevation adjustment string */
 }
 
 /* Luxury Accent Tag */
@@ -70,7 +76,8 @@
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.25em; /* Executive tracking expansion */
+  letter-spacing: 0.25em;
+  /* Executive tracking expansion */
   margin-bottom: 1.5rem;
 }
 
@@ -88,14 +95,15 @@
   font-size: 3.75rem;
   font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.03em; /* Clean, editorial kerning */
-  
+  letter-spacing: -0.03em;
+  /* Clean, editorial kerning */
+
   /* Modern metallic gradient font face mask */
   background: linear-gradient(135deg, #ffffff 40%, var(--neutral-grey, #8d9898) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  
+
   margin-bottom: 1.5rem;
   text-shadow: 0 4px 25px rgba(5, 13, 14, 0.4);
 }
@@ -114,13 +122,16 @@
    ========================================================================== */
 @media (max-width: 768px) {
   .contact-hero-canvas {
-    padding: 10rem 0 5rem 0; /* Streamlined mobile block heights */
-    background-attachment: scroll; /* Disables sticky parallax loop calculation lines on mobile for 60fps scrolling */
+    padding: 10rem 0 5rem 0;
+    /* Streamlined mobile block heights */
+    background-attachment: scroll;
+    /* Disables sticky parallax loop calculation lines on mobile for 60fps scrolling */
   }
 
   .hero-contact-content-box {
     max-width: 100%;
-    margin-top: 0; /* PERFECT CORRECTION: Resets negative margin lift parameters to avoid header overlaps */
+    margin-top: 0;
+    /* PERFECT CORRECTION: Resets negative margin lift parameters to avoid header overlaps */
     padding: 0 1.25rem;
   }
 
@@ -130,7 +141,8 @@
   }
 
   .contact-hero-canvas .subpage-title {
-    font-size: 2.5rem; /* Balanced typographic display size scale */
+    font-size: 2.5rem;
+    /* Balanced typographic display size scale */
     line-height: 1.2;
     letter-spacing: -0.01em;
   }
@@ -141,7 +153,6 @@
     padding: 0 0.5rem;
   }
 }
-
 
 
 
@@ -162,7 +173,10 @@
 
 .contact-matrix-glow {
   position: absolute;
-  top: 30%; left: -10%; width: 600px; height: 600px;
+  top: 30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(11, 80, 82, 0.14) 0%, transparent 70%);
   filter: blur(130px);
@@ -250,8 +264,8 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.15rem;
   color: #ffffff;
-  margin-bottom: 0.25rem;
   font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
 .directory-info p {
@@ -269,7 +283,7 @@
 }
 
 /* ==========================================================================
-   RIGHT COLUMN COMPONENT: SECURE INPUT BOXES & OVERFLOW CONTROLS
+   RIGHT COLUMN COMPONENT: SECURE INPUT BOXES
    ========================================================================== */
 .contact-glass-card {
   background: linear-gradient(135deg, rgba(11, 80, 82, 0.12) 0%, rgba(5, 13, 14, 0.4) 100%);
@@ -322,10 +336,9 @@
   letter-spacing: 0.03em;
 }
 
-/* Base Form Input Safety Configuration */
 .premium-contact-input {
   width: 100%;
-  max-width: 100%; /* FIX: Force explicit content boundary locks */
+  max-width: 100%;
   background: rgba(5, 13, 14, 0.5);
   border: 1px solid rgba(71, 146, 148, 0.25);
   border-radius: 12px;
@@ -335,7 +348,7 @@
   font-size: 0.95rem;
   outline: none;
   box-sizing: border-box;
-  text-overflow: ellipsis; /* FIX: Truncates text with a smart '...' if string overflows container bounds */
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -347,18 +360,17 @@
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
 }
 
-/* Shimmer feedback framework for invalid inputs during active evaluation rules */
+/* Red high-contrast indicator highlight to handle error states visual loops */
 .premium-contact-input:focus:invalid {
   border-color: #ff4a4a;
   box-shadow: 0 0 15px rgba(255, 74, 74, 0.2);
 }
 
-/* --- Dropdown Form Shielding Architecture --- */
 .custom-select-mask {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding-right: 45px !important; /* FIX: Prevents long text options from overlapping our custom down arrow */
+  padding-right: 45px !important;
 }
 
 .custom-select-mask option {
@@ -368,7 +380,7 @@
 
 .premium-textarea {
   resize: vertical;
-  white-space: normal; /* Permits details area to follow default row breaking structures */
+  white-space: normal;
   overflow: auto;
 }
 
@@ -425,7 +437,7 @@
     text-align: left;
     padding: 1.25rem 1.5rem;
   }
-  
+
   .directory-item-box:hover {
     transform: none;
   }
@@ -451,7 +463,6 @@
     gap: 1.5rem;
   }
 
-  /* Core Font and Padding Shifting for Ultra Compact Mobile Frames */
   .premium-contact-input {
     padding: 14px 16px;
     font-size: 0.9rem;
@@ -461,8 +472,35 @@
     padding-right: 40px !important;
     background-position: right 14px center;
   }
-}
 
+  /* 🌟 FIXES DROPDOWN OVERFLOW: Enforces absolute structural boundary constraints */
+  .contact-field-group {
+    width: 100%;
+    max-width: 100%;
+    position: relative; /* Contextually anchors the element's interior rendering bounds */
+  }
+
+  /* Refines the dropdown element layout structure specifically for mobile touches */
+  .premium-contact-input.custom-select-mask {
+    width: 80% !important;
+    max-width: 80% !important;
+    box-sizing: border-box; /* Includes border clearances in width calculation properties */
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* If your contact-glass-card has restricted width limits, ease them out to handle mobile margins */
+  .contact-glass-card {
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Stops inner component shadows or masks from breaking layouts */
+  }
+
+}
 
 
 
@@ -474,8 +512,10 @@
    PREMIUM INTERACTIVE MAP & REGISTRY MATRIX SYSTEM
    ========================================================================== */
 .premium-map-registry-section {
-  background-color: #050d0e; /* Fixed locked corporate dark background canvas */
-  padding: 4rem 0 10rem 0; /* Expanded bottom padding creates breathing space before footers */
+  background-color: #050d0e;
+  /* Fixed locked corporate dark background canvas */
+  padding: 4rem 0 10rem 0;
+  /* Expanded bottom padding creates breathing space before footers */
   position: relative;
   overflow: hidden;
   z-index: 10;
@@ -483,7 +523,10 @@
 
 .map-matrix-ambient-glow {
   position: absolute;
-  bottom: -10%; left: 30%; width: 550px; height: 550px;
+  bottom: -10%;
+  left: 30%;
+  width: 550px;
+  height: 550px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(71, 146, 148, 0.12) 0%, transparent 70%);
   filter: blur(130px);
@@ -493,7 +536,8 @@
 
 .map-registry-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* Asymmetric balance prioritizing the interactive map frame */
+  grid-template-columns: 1.1fr 0.9fr;
+  /* Asymmetric balance prioritizing the interactive map frame */
   gap: 4.5rem;
   align-items: center;
   position: relative;
@@ -531,9 +575,12 @@
 /* Luxury interior vignette shroud binds map textures directly to baseline backgrounds */
 .map-vignette-shroud {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(5, 13, 14, 0.7) 100%),
-              linear-gradient(180deg, rgba(5, 13, 14, 0.2) 0%, rgba(5, 13, 14, 0.5) 100%);
+    linear-gradient(180deg, rgba(5, 13, 14, 0.2) 0%, rgba(5, 13, 14, 0.5) 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -541,14 +588,18 @@
 /* Floating Automated Pulse Signal Core */
 .map-radar-pulse-core {
   position: absolute;
-  top: 52%; left: 48%; /* Matches targeted regional map center coordinates */
-  width: 14px; height: 14px;
+  top: 52%;
+  left: 48%;
+  /* Matches targeted regional map center coordinates */
+  width: 14px;
+  height: 14px;
   z-index: 3;
 }
 
 .radar-ping {
   position: absolute;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   background-color: var(--secondary-cyan, #00e5ff);
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.8);
@@ -556,15 +607,23 @@
 
 .radar-ping-echo {
   position: absolute;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   background-color: var(--secondary-cyan, #00e5ff);
   border-radius: 50%;
   animation: radarEchoPulse 2.5s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
 }
 
 @keyframes radarEchoPulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(4.5); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(4.5);
+    opacity: 0;
+  }
 }
 
 /* ==========================================================================
@@ -644,7 +703,8 @@
   margin-bottom: 0.5rem;
 }
 
-.node-address, .node-availability {
+.node-address,
+.node-availability {
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.9rem;
   color: var(--neutral-grey, #8d9898);
@@ -679,7 +739,8 @@
 }
 
 .premium-map-registry-section:hover .embedded-map-frame {
-  filter: grayscale(80%) invert(92%) contrast(120%) brightness(90%) hue-rotate(170deg); /* Soft brightness shift on maps */
+  filter: grayscale(80%) invert(92%) contrast(120%) brightness(90%) hue-rotate(170deg);
+  /* Soft brightness shift on maps */
 }
 
 /* ==========================================================================
@@ -691,13 +752,15 @@
   }
 
   .map-registry-layout {
-    grid-template-columns: 1fr; /* Instantly collapses split-grids to unified singular layout columns */
+    grid-template-columns: 1fr;
+    /* Instantly collapses split-grids to unified singular layout columns */
     gap: 3.5rem;
     padding: 0 1.25rem;
   }
 
   .dark-map-canvas {
-    aspect-ratio: 16 / 10; /* Adapts beautifully into horizontal frames on device frames */
+    aspect-ratio: 16 / 10;
+    /* Adapts beautifully into horizontal frames on device frames */
     border-radius: 16px;
   }
 
@@ -724,10 +787,11 @@
   }
 
   .office-node-card {
-    text-align: left; /* Maintains text baseline alignments on cards layout */
+    text-align: left;
+    /* Maintains text baseline alignments on cards layout */
     border-radius: 12px;
   }
-  
+
   .node-card-content {
     padding: 1.5rem;
   }
@@ -746,8 +810,10 @@
    PREMIUM CORPORATE DETAILS REGISTRY SYSTEM
    ========================================================================== */
 .premium-corporate-details-section {
-  background-color: #050d0e; /* Fixed locked brand dark background canvas */
-  padding: 4rem 0 10rem 0; /* Expanded padding creates strict separation limits before footers */
+  background-color: #050d0e;
+  /* Fixed locked brand dark background canvas */
+  padding: 4rem 0 10rem 0;
+  /* Expanded padding creates strict separation limits before footers */
   position: relative;
   z-index: 10;
   border-top: 1px solid rgba(71, 146, 148, 0.12);
@@ -755,7 +821,8 @@
 
 .details-split-matrix {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Balanced 3-column corporate array layout */
+  grid-template-columns: repeat(3, 1fr);
+  /* Balanced 3-column corporate array layout */
   gap: 3.5rem;
   padding: 0 1.5rem;
 }
@@ -767,14 +834,16 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, rgba(11, 80, 82, 0.05) 0%, rgba(5, 13, 14, 0.25) 100%);
-  border-left: 2px solid rgba(71, 146, 148, 0.2); /* Luxury fine rule line replacing heavy border cards */
+  border-left: 2px solid rgba(71, 146, 148, 0.2);
+  /* Luxury fine rule line replacing heavy border cards */
   padding: 1rem 0 1.5rem 2rem;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .details-mini-tag {
   font-family: var(--font-body, 'Inter', sans-serif);
-  color: var(--secondary-gold, #cfa365); /* Elegant gold theme tracking accent */
+  color: var(--secondary-gold, #cfa365);
+  /* Elegant gold theme tracking accent */
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -804,7 +873,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: auto; /* Pushes meta rows flat to the base boundary grid */
+  margin-top: auto;
+  /* Pushes meta rows flat to the base boundary grid */
 }
 
 .meta-line-item {
@@ -818,7 +888,8 @@
 }
 
 .meta-line-item i {
-  color: var(--secondary-cyan, #00e5ff); /* Vivid cyan indicators pop off the background dark canvas */
+  color: var(--secondary-cyan, #00e5ff);
+  /* Vivid cyan indicators pop off the background dark canvas */
   font-size: 0.95rem;
   width: 16px;
   text-align: center;
@@ -828,7 +899,8 @@
 .corporate-details-node:hover {
   border-left-color: var(--secondary-cyan, #00e5ff);
   background: linear-gradient(135deg, rgba(11, 80, 82, 0.12) 0%, rgba(5, 13, 14, 0.35) 100%);
-  padding-left: 2.5rem; /* Soft kinetic sliding typography animation interaction */
+  padding-left: 2.5rem;
+  /* Soft kinetic sliding typography animation interaction */
   cursor: default;
 }
 
@@ -841,27 +913,22 @@
   }
 
   .details-split-matrix {
-    grid-template-columns: 1fr; /* Instantly collapses rows to a singular mobile list stream */
+    grid-template-columns: 1fr;
+    /* Instantly collapses rows to a singular mobile list stream */
     gap: 3rem;
     padding: 0 1.25rem;
   }
 
   .corporate-details-node {
-    padding: 0 0 1.5rem 1.5rem; /* Adjusts side space for tighter handheld device glass frames */
+    padding: 0 0 1.5rem 1.5rem;
+    /* Adjusts side space for tighter handheld device glass frames */
     border-left: 2px solid rgba(71, 146, 148, 0.3);
   }
-  
+
   .corporate-details-node:hover {
-    padding-left: 1.5rem; /* Disables kinetic padding slide transitions on touch viewports for interface stability */
+    padding-left: 1.5rem;
+    /* Disables kinetic padding slide transitions on touch viewports for interface stability */
     background: none;
     border-left-color: var(--secondary-cyan, #00e5ff);
   }
 }
-
-
-
-
-
-
-
-
