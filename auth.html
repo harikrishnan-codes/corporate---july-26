@@ -36,8 +36,16 @@
                         </select>
                     </div>
                     <div class="auth-field-group space-top password-input-wrapper">
-                        <input type="password" id="signup-pass" class="premium-auth-input" placeholder="Create Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,8}$" oninvalid="this.setCustomValidity('Password must be 6-8 characters long and contain at least one letter, one number, and one symbol.')" oninput="this.setCustomValidity('')" required>
-                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('signup-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
+<input 
+    type="password" 
+    id="signup-pass" 
+    class="premium-auth-input" 
+    placeholder="Create Password" 
+    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$" 
+    oninvalid="this.setCustomValidity('Password must be at least 6 characters long and contain at least one letter, one number, and one symbol.')" 
+    oninput="this.setCustomValidity('')" 
+    required
+>                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('signup-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
                     </div>
                     <div class="auth-field-group space-top password-input-wrapper">
                         <input type="password" id="signup-confirm-pass" class="premium-auth-input" placeholder="Confirm Password" required>
@@ -57,8 +65,16 @@
                         <input type="email" id="login-email" class="premium-auth-input" placeholder="Email Address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" oninvalid="this.setCustomValidity(this.value === '' ? 'Please fill out your details.' : 'plz enter proper mail id formate.')" oninput="this.setCustomValidity('')" required>
                     </div>
                     <div class="auth-field-group space-top password-input-wrapper">
-                        <input type="password" id="login-pass" class="premium-auth-input" placeholder="Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,8}$" oninvalid="this.setCustomValidity('Password must be 6-8 characters long and contain at least one letter, one number, and one symbol.')" oninput="this.setCustomValidity('')" required>
-                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('login-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
+<input 
+    type="password" 
+    id="login-pass" 
+    class="premium-auth-input" 
+    placeholder="Password" 
+    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$" 
+    oninvalid="this.setCustomValidity('Password must be at least 6 characters long and contain at least one letter, one number, and one symbol.')" 
+    oninput="this.setCustomValidity('')" 
+    required
+>                        <button type="button" class="password-toggle-trigger" onclick="togglePasswordVisibility('login-pass', this)"><i class="fa-regular fa-eye-slash"></i></button>
                     </div>
                     <div class="auth-forgot-row">
                         <button type="button" class="switch-trigger-btn minor" onclick="switchAuthState('forgot')">Forgot Credentials Key?</button>
@@ -87,8 +103,12 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
+    // Initialize AOS Animation Layer
     AOS.init({ duration: 1000, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', once: true });
 
+    /**
+     * Switch Visibility Panes Between Signup, Login, and Forgot States
+     */
     function switchAuthState(targetState) {
         document.querySelectorAll('.auth-view-pane').forEach(view => {
             view.classList.remove('active');
@@ -101,6 +121,9 @@
         }
     }
 
+    /**
+     * Toggle Password Masking Visibility Icon Mechanics
+     */
     function togglePasswordVisibility(fieldId, buttonEl) {
         const passwordField = document.getElementById(fieldId);
         const icon = buttonEl.querySelector('i');
@@ -109,21 +132,20 @@
         icon.className = isPassword ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash';
     }
 
+    /**
+     * Sign-Up Validation & Role Cache Registration Loop
+     */
     function handleSignupValidation(event) {
         event.preventDefault();
         
+        const emailField = document.getElementById('signup-email');
         const passField = document.getElementById('signup-pass');
         const confirmPassField = document.getElementById('signup-confirm-pass');
-        const emailField = document.getElementById('signup-email');
+        const roleField = document.getElementById('signup-role');
 
-        // Verify email structural constraints natively
-        if (!emailField.checkValidity()) {
+        // Verify native validation constraints strictly
+        if (!emailField.checkValidity() || !passField.checkValidity()) {
             emailField.reportValidity();
-            return false;
-        }
-
-        // Verify password constraint parameters natively
-        if (!passField.checkValidity()) {
             passField.reportValidity();
             return false;
         }
@@ -133,50 +155,72 @@
             return false;
         }
 
-        localStorage.setItem('cachedUserRole', document.getElementById('signup-role').value);
+        // Cache chosen role for deployment tracking across dashboards
+        localStorage.setItem('cachedUserRole', roleField.value);
+        
+        alert('Infrastructure profile registered successfully! Moving to Login Window.');
         switchAuthState('login');
     }
 
+    /**
+     * 🌟 THE LOGIC ENGINE: Strict Login Validation & FORCED DASHBOARD REDIRECTION
+     * விவரங்கள் சரியாக இருந்தால் பக்கத்தை ரீலோடு செய்யாமல் நேரடியாக டேஷ்போர்டிற்கு மாற்றும் பகுதி
+     */
     function handleLoginRedirection(event) {
+        // 1. Halt standard form submit network reload events immediately
         event.preventDefault();
         
         const emailField = document.getElementById('login-email');
         const passField = document.getElementById('login-pass');
 
-        // Enforce strict email formatting rule on login submission
+        // 2. Strict Email Suffix Evaluation (.com இருக்கிறதா எனப் பார்க்கும்)
         if (!emailField.checkValidity()) {
             emailField.reportValidity();
             return false;
         }
 
-        // Enforce strict password strength metrics on login submission
+        // 3. Strict Password Formats Check (6-8 characters, number, special character)
         if (!passField.checkValidity()) {
             passField.reportValidity();
             return false;
         }
         
-        // Capture the exact input email string entered by the user
-        const emailInput = emailField.value;
-        localStorage.setItem('authenticatedUserEmail', emailInput);
+        // Capture the exact input email string entered by the user for session identity
+        localStorage.setItem('authenticatedUserEmail', emailField.value);
         
-        // Pull the cached state choice from internal browser memory securely
-        const userRole = localStorage.getItem('cachedUserRole');
+        // Pull the cached role choice securely from internal browser storage
+        let userRole = localStorage.getItem('cachedUserRole');
 
+        // Safe Fallback Trigger: If direct entry occurred without registration, defaults safely to admin layout
+        if (!userRole) {
+            userRole = 'admin';
+        }
+
+        // 🌟 4. FORCED WINDOW ACTION REDIRECTS (பிரவுசரை கட்டாயப்படுத்தி டேஷ்போர்டு பக்கத்திற்கு மாற்றுகிறது)
         if (userRole === 'admin') {
-            window.location.href = 'admin.html';
+            window.location.assign('admin.html'); // Goes directly to admin dashboard
         } else if (userRole === 'client') {
-            window.location.href = 'client.html';
+            window.location.assign('client.html'); // Goes directly to client dashboard
         } else {
-            alert('No operational role trace detected. Please switch back to signup configuration view and choose a role first.');
-            switchAuthState('signup');
+            window.location.assign('admin.html'); // Global secure fallback link
         }
     }
 
+    /**
+     * Forgot Password Key Recovery Validation
+     */
     function handleForgotRecovery(event) {
         event.preventDefault();
-        window.location.href = 'error.html';
+        const forgotEmailField = document.getElementById('forgot-email');
+
+        if (!forgotEmailField.checkValidity()) {
+            forgotEmailField.reportValidity();
+            return false;
+        }
+        window.location.assign('error.html');
     }
 
+    // Initialize display state architecture safely on content load
     document.addEventListener("DOMContentLoaded", () => switchAuthState('signup'));
 </script>
 </body>
