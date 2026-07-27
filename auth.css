@@ -176,3 +176,105 @@
     padding: 15px 16px;
   }
 }
+
+
+
+
+
+
+
+/* Container positioning */
+.custom-auth-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+/* Base trigger button styling */
+.custom-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.custom-dropdown-trigger .selected-text.placeholder {
+    color: var(--neutral-grey, #8d9898);
+}
+
+.custom-dropdown-trigger .select-arrow {
+    font-size: 0.8rem;
+    color: var(--neutral-grey, #8d9898);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Active and focus states */
+.custom-auth-dropdown.open .custom-dropdown-trigger {
+    border-color: var(--secondary-cyan, #00e5ff);
+    background: rgba(11, 80, 82, 0.15);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.custom-auth-dropdown.open .select-arrow {
+    transform: rotate(180deg);
+    color: var(--secondary-cyan, #00e5ff);
+}
+
+/* Dropdown Menu Overlay */
+.custom-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: #050d0e;
+    border: 1px solid rgba(71, 146, 148, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.custom-auth-dropdown.open .custom-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Individual Option Items */
+.custom-dropdown-item {
+    padding: 12px 18px;
+    font-family: var(--font-body, 'Inter', sans-serif);
+    font-size: 0.95rem;
+    color: var(--neutral-grey, #8d9898);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.custom-dropdown-item:hover,
+.custom-dropdown-item.selected {
+    background: rgba(11, 80, 82, 0.3);
+    color: #ffffff;
+}
+
+.custom-dropdown-item.selected {
+    color: var(--secondary-cyan, #00e5ff);
+    font-weight: 600;
+}
+
+/* Invisible input for handling standard HTML5 validation */
+.dropdown-hidden-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
