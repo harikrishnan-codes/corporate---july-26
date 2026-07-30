@@ -218,6 +218,7 @@
   border: 1px solid var(--primary-75);
   border-radius: 12px;
   padding: 1.5rem;
+  /* width: 300px; */
 }
 
 .card-subtitle {
@@ -384,4 +385,25 @@ td { color: var(--neutral-light-grey); }
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .dashboard-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  /* .dashboard-body .table-card{
+  max-width: 350px;
+  
+}
+
+.dashboard-body .widget-card{
+  max-width: 350px;
+} */
+
+
+
 }

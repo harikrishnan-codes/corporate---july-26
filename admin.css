@@ -383,4 +383,13 @@ td { color: var(--neutral-light-grey); }
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .dashboard-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 10px;
+  }
 }
