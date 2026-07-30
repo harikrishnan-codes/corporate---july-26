@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Portal | Enterprise Control Center</title>
   <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="admin.css">
-<link rel="icon" href="./assets/bg remove.webp">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="./assets/bg remove.webp">
   <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
 
   <!-- Mobile Overlay Drawer Backdrop -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <div class="dashboard-layout">
-    
+
     <!-- ADMIN SIDEBAR NAVIGATION -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
@@ -30,25 +32,41 @@
         <ul id="adminSidebarNav">
           <li>
             <a href="#system-overview" class="nav-link active" data-target="admin-overview">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                </path>
+              </svg>
               <span>System Health</span>
             </a>
           </li>
           <li>
             <a href="#user-management" class="nav-link passive" data-target="admin-users">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
+              </svg>
               <span>User Accounts</span>
             </a>
           </li>
           <li>
             <a href="#logs" class="nav-link passive" data-target="admin-logs">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                </path>
+              </svg>
               <span>Audit Security Logs</span>
             </a>
           </li>
           <li>
             <a href="#global-config" class="nav-link passive" data-target="admin-config">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                </path>
+              </svg>
               <span>Global Config</span>
             </a>
           </li>
@@ -69,7 +87,7 @@
 
     <!-- MAIN CONTENT AREA -->
     <main class="main-content">
-      
+
       <!-- TOP NAVBAR -->
       <header class="topbar">
         <div class="topbar-left">
@@ -165,7 +183,7 @@
           <div class="card widget-card">
             <h3>Admin Quick Controls</h3>
             <p class="caption">High-level systemic controls.</p>
-            
+
             <div class="widget-buttons">
               <a href="error.html" class="btn btn-secondary w-100">Purge Cache</a>
               <a href="error.html" class="btn btn-outline w-100">Regenerate API Keys</a>
@@ -208,96 +226,121 @@
 
   <script src="admin-dashboard.js"></script>
 
-<script>
+  <script>
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. DYNAMIC ADMIN EMAIL DISPLAY FROM LOCALSTORAGE
-  const loggedInAdminEmail = localStorage.getItem('adminEmail') || 'admin@enterprise.com';
-  const adminEmailDisplay = document.getElementById('adminEmailDisplay');
-  const adminAvatar = document.getElementById('adminAvatar');
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. DYNAMIC ADMIN EMAIL DISPLAY FROM LOCALSTORAGE
+      const loggedInAdminEmail = localStorage.getItem('adminEmail') || 'admin@enterprise.com';
+      const adminEmailDisplay = document.getElementById('adminEmailDisplay');
+      const adminAvatar = document.getElementById('adminAvatar');
 
-  if (adminEmailDisplay) {
-    adminEmailDisplay.textContent = loggedInAdminEmail;
-    // Extract first 2 letters for the avatar display
-    const initials = loggedInAdminEmail.substring(0, 2).toUpperCase();
-    if (adminAvatar) adminAvatar.textContent = initials;
-  }
+      if (adminEmailDisplay) {
+        adminEmailDisplay.textContent = loggedInAdminEmail;
+        // Extract first 2 letters for the avatar display
+        const initials = loggedInAdminEmail.substring(0, 2).toUpperCase();
+        if (adminAvatar) adminAvatar.textContent = initials;
+      }
 
-  // 2. HAMBURGER MENU / DRAWER FUNCTIONALITY
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const closeSidebarBtn = document.getElementById('closeSidebarBtn');
-  const sidebar = document.getElementById('sidebar');
-  const sidebarOverlay = document.getElementById('sidebarOverlay');
+      // 2. HAMBURGER MENU / DRAWER FUNCTIONALITY
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+      const sidebar = document.getElementById('sidebar');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-  function openSidebar() {
-    sidebar.classList.add('active');
-    sidebarOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+      function openSidebar() {
+        sidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
 
-  function closeSidebar() {
-    sidebar.classList.remove('active');
-    sidebarOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
 
-  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
-  if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
-  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+      if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+      if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+      if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
 
-  // 3. DYNAMIC SECTION SWITCHING FOR ADMIN NAV LINKS
-  const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
-  const tabContents = document.querySelectorAll('.dashboard-tab-content');
-  const adminTitleDisplay = document.getElementById('adminTitleDisplay');
+      // 3. DYNAMIC SECTION SWITCHING FOR ADMIN NAV LINKS
+      const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+      const tabContents = document.querySelectorAll('.dashboard-tab-content');
+      const adminTitleDisplay = document.getElementById('adminTitleDisplay');
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
 
-      const targetId = link.getAttribute('data-target');
-      if (!targetId) return;
+          const targetId = link.getAttribute('data-target');
+          if (!targetId) return;
 
-      // Toggle active link styles
-      navLinks.forEach((item) => {
-        item.classList.remove('active');
-        item.classList.add('passive');
+          // Toggle active link styles
+          navLinks.forEach((item) => {
+            item.classList.remove('active');
+            item.classList.add('passive');
+          });
+          link.classList.add('active');
+          link.classList.remove('passive');
+
+          // Toggle visible section
+          tabContents.forEach((section) => {
+            section.classList.remove('active');
+          });
+
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.classList.add('active');
+          }
+
+          // Update header title dynamically
+          const linkText = link.querySelector('span').textContent;
+          if (adminTitleDisplay) {
+            adminTitleDisplay.textContent = linkText;
+          }
+
+          // Automatically close mobile menu when link is clicked
+          if (window.innerWidth <= 768) {
+            closeSidebar();
+          }
+        });
       });
-      link.classList.add('active');
-      link.classList.remove('passive');
 
-      // Toggle visible section
-      tabContents.forEach((section) => {
-        section.classList.remove('active');
+      // Automatically reset mobile drawer state on resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          closeSidebar();
+        }
       });
-
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.classList.add('active');
-      }
-
-      // Update header title dynamically
-      const linkText = link.querySelector('span').textContent;
-      if (adminTitleDisplay) {
-        adminTitleDisplay.textContent = linkText;
-      }
-
-      // Automatically close mobile menu when link is clicked
-      if (window.innerWidth <= 768) {
-        closeSidebar();
-      }
     });
-  });
 
-  // Automatically reset mobile drawer state on resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      closeSidebar();
-    }
-  });
-});
 
-</script>
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. RETRIEVE LOGGED-IN EMAIL FROM AUTHENTICATION PAGE
+      const adminEmail = localStorage.getItem('authenticatedUserEmail') || 'admin@enterprise.com';
+
+      const adminEmailDisplay = document.getElementById('adminEmailDisplay');
+      const adminAvatar = document.getElementById('adminAvatar');
+
+      // Display Email in Admin Sidebar
+      if (adminEmailDisplay) {
+        adminEmailDisplay.textContent = adminEmail;
+      }
+
+      // Extract and display initials in Avatar circle
+      if (adminAvatar) {
+        const initials = adminEmail.substring(0, 2).toUpperCase();
+        adminAvatar.textContent = initials;
+      }
+
+      // ... rest of your hamburger menu and tab-switching JS code ...
+    });
+
+  </script>
 
 
 </body>
+
 </html>

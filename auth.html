@@ -194,48 +194,36 @@
                 return false;
             }
 
-            // Cache chosen role for deployment tracking across dashboards
             localStorage.setItem('cachedUserRole', roleField.value);
 
             alert('Infrastructure profile registered successfully! Moving to Login Window.');
             switchAuthState('login');
         }
 
-        /**
-         * 🌟 THE LOGIC ENGINE: Strict Login Validation & FORCED DASHBOARD REDIRECTION
-         * விவரங்கள் சரியாக இருந்தால் பக்கத்தை ரீலோடு செய்யாமல் நேரடியாக டேஷ்போர்டிற்கு மாற்றும் பகுதி
-         */
         function handleLoginRedirection(event) {
-            // 1. Halt standard form submit network reload events immediately
             event.preventDefault();
 
             const emailField = document.getElementById('login-email');
             const passField = document.getElementById('login-pass');
 
-            // 2. Strict Email Suffix Evaluation (.com இருக்கிறதா எனப் பார்க்கும்)
             if (!emailField.checkValidity()) {
                 emailField.reportValidity();
                 return false;
             }
 
-            // 3. Strict Password Formats Check (6-8 characters, number, special character)
             if (!passField.checkValidity()) {
                 passField.reportValidity();
                 return false;
             }
 
-            // Capture the exact input email string entered by the user for session identity
             localStorage.setItem('authenticatedUserEmail', emailField.value);
 
-            // Pull the cached role choice securely from internal browser storage
             let userRole = localStorage.getItem('cachedUserRole');
 
-            // Safe Fallback Trigger: If direct entry occurred without registration, defaults safely to admin layout
             if (!userRole) {
                 userRole = 'admin';
             }
 
-            // 🌟 4. FORCED WINDOW ACTION REDIRECTS (பிரவுசரை கட்டாயப்படுத்தி டேஷ்போர்டு பக்கத்திற்கு மாற்றுகிறது)
             if (userRole === 'admin') {
                 window.location.assign('admin.html'); // Goes directly to admin dashboard
             } else if (userRole === 'client') {

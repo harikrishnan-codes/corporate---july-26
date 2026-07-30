@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Dashboard | Enterprise Hub</title>
   <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="client.css">
-<link rel="icon" href="./assets/bg remove.webp">
+  <link rel="stylesheet" href="client.css">
+  <link rel="icon" href="./assets/bg remove.webp">
   <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
 
   <!-- Mobile Overlay -->
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <div class="dashboard-layout">
-    
+
     <!-- SIDEBAR NAVIGATION -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
@@ -30,31 +32,50 @@
         <ul id="sidebarNavList">
           <li>
             <a href="#overview" class="nav-link active" data-target="overview-section">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                </path>
+              </svg>
               <span>Overview</span>
             </a>
           </li>
           <li>
             <a href="#analytics" class="nav-link passive" data-target="analytics-section">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2">
+                </path>
+              </svg>
               <span>Analytics</span>
             </a>
           </li>
           <li>
             <a href="#billing" class="nav-link passive" data-target="billing-section">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 10h18M7 15h1m4 0h1m-7 4h12a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
               <span>Invoices & Billing</span>
             </a>
           </li>
           <li>
             <a href="#team" class="nav-link passive" data-target="team-section">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                </path>
+              </svg>
               <span>Team Access</span>
             </a>
           </li>
           <li>
             <a href="#settings" class="nav-link passive" data-target="settings-section">
-              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+              <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                </path>
+              </svg>
               <span>Settings</span>
             </a>
           </li>
@@ -75,7 +96,7 @@
 
     <!-- MAIN CONTENT AREA -->
     <main class="main-content">
-      
+
       <!-- TOP NAVBAR -->
       <header class="topbar">
         <div class="topbar-left">
@@ -169,7 +190,7 @@
           <div class="card widget-card">
             <h3>Quick Operations</h3>
             <p class="caption">Perform primary enterprise management tasks directly.</p>
-            
+
             <div class="widget-buttons">
               <a href="error.html" class="btn btn-secondary w-100">Download Invoices</a>
               <a href="error.html" class="btn btn-outline w-100">Manage Team Access</a>
@@ -221,96 +242,120 @@
 
   <script src="dashboard.js"></script>
 
-<script>
+  <script>
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. DYNAMIC USER EMAIL FROM LOGIN
-  const loggedInEmail = localStorage.getItem('userEmail') || 'client@enterprise.com';
-  const emailDisplay = document.getElementById('userEmailDisplay');
-  const avatarDisplay = document.getElementById('userAvatar');
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. DYNAMIC USER EMAIL FROM LOGIN
+      const loggedInEmail = localStorage.getItem('userEmail') || 'client@enterprise.com';
+      const emailDisplay = document.getElementById('userEmailDisplay');
+      const avatarDisplay = document.getElementById('userAvatar');
 
-  if (emailDisplay) {
-    emailDisplay.textContent = loggedInEmail;
-    // Extract avatar initials from email
-    const initials = loggedInEmail.substring(0, 2).toUpperCase();
-    if (avatarDisplay) avatarDisplay.textContent = initials;
-  }
+      if (emailDisplay) {
+        emailDisplay.textContent = loggedInEmail;
+        // Extract avatar initials from email
+        const initials = loggedInEmail.substring(0, 2).toUpperCase();
+        if (avatarDisplay) avatarDisplay.textContent = initials;
+      }
 
-  // 2. HAMBURGER MENU CONTROLS
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const closeSidebarBtn = document.getElementById('closeSidebarBtn');
-  const sidebar = document.getElementById('sidebar');
-  const sidebarOverlay = document.getElementById('sidebarOverlay');
+      // 2. HAMBURGER MENU CONTROLS
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+      const sidebar = document.getElementById('sidebar');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-  function openSidebar() {
-    sidebar.classList.add('active');
-    sidebarOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+      function openSidebar() {
+        sidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
 
-  function closeSidebar() {
-    sidebar.classList.remove('active');
-    sidebarOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
 
-  if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
-  if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
-  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+      if (hamburgerBtn) hamburgerBtn.addEventListener('click', openSidebar);
+      if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+      if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
 
-  // 3. CUSTOM NAV-LINK CONTENT SWITCHING
-  const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
-  const tabContents = document.querySelectorAll('.dashboard-tab-content');
-  const pageTitleDisplay = document.getElementById('pageTitleDisplay');
+      // 3. CUSTOM NAV-LINK CONTENT SWITCHING
+      const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+      const tabContents = document.querySelectorAll('.dashboard-tab-content');
+      const pageTitleDisplay = document.getElementById('pageTitleDisplay');
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
 
-      const targetId = link.getAttribute('data-target');
-      if (!targetId) return;
+          const targetId = link.getAttribute('data-target');
+          if (!targetId) return;
 
-      // Update active nav-link state
-      navLinks.forEach((item) => {
-        item.classList.remove('active');
-        item.classList.add('passive');
+          // Update active nav-link state
+          navLinks.forEach((item) => {
+            item.classList.remove('active');
+            item.classList.add('passive');
+          });
+          link.classList.add('active');
+          link.classList.remove('passive');
+
+          // Update visible content section
+          tabContents.forEach((section) => {
+            section.classList.remove('active');
+          });
+
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.classList.add('active');
+          }
+
+          // Update page title header text dynamically
+          const linkText = link.querySelector('span').textContent;
+          if (pageTitleDisplay) {
+            pageTitleDisplay.textContent = linkText === 'Overview' ? 'Executive Dashboard' : linkText;
+          }
+
+          // Automatically close drawer menu on mobile selection
+          if (window.innerWidth <= 768) {
+            closeSidebar();
+          }
+        });
       });
-      link.classList.add('active');
-      link.classList.remove('passive');
 
-      // Update visible content section
-      tabContents.forEach((section) => {
-        section.classList.remove('active');
+      // Auto-close sidebar on desktop resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          closeSidebar();
+        }
       });
-
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.classList.add('active');
-      }
-
-      // Update page title header text dynamically
-      const linkText = link.querySelector('span').textContent;
-      if (pageTitleDisplay) {
-        pageTitleDisplay.textContent = linkText === 'Overview' ? 'Executive Dashboard' : linkText;
-      }
-
-      // Automatically close drawer menu on mobile selection
-      if (window.innerWidth <= 768) {
-        closeSidebar();
-      }
     });
-  });
 
-  // Auto-close sidebar on desktop resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      closeSidebar();
-    }
-  });
-});
 
-</script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. RETRIEVE LOGGED-IN EMAIL FROM AUTHENTICATION PAGE
+      const userEmail = localStorage.getItem('authenticatedUserEmail') || 'client@enterprise.com';
+
+      const emailDisplay = document.getElementById('userEmailDisplay');
+      const avatarDisplay = document.getElementById('userAvatar');
+
+      // Display Email in Dashboard Sidebar
+      if (emailDisplay) {
+        emailDisplay.textContent = userEmail;
+      }
+
+      // Extract and display initials in Avatar circle
+      if (avatarDisplay) {
+        const initials = userEmail.substring(0, 2).toUpperCase();
+        avatarDisplay.textContent = initials;
+      }
+
+      // ... rest of your hamburger menu and tab-switching JS code ...
+    });
+
+  </script>
 
 
 </body>
+
 </html>
